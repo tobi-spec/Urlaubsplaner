@@ -33,7 +33,6 @@
     const data = {
       labels: ['employee 0', 'employee 1', 'employee 2', 'employee 3', 'employee 4', 'employee 5', 'employee 6'],
       datasets: [{
-        label: 'Vacation 1',
         data: [
             ['2022-01-01', '2022-03-03'],
             ['2022-04-03', '2022-04-23'],
@@ -46,7 +45,6 @@
         backgroundColor: chartColors
       },
       {
-        label: 'Vacation 2',
         data: [
             ['2022-10-03', '2022-11-30'],
             ['2022-11-03', '2022-11-23'],
@@ -66,6 +64,11 @@
       type: 'bar',
       data,
       options: {
+        plugins: {
+          legend: {
+            display: false
+                  }
+                },
         indexAxis: 'y',
         scales: {
             xAxes: {
