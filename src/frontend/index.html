@@ -29,11 +29,9 @@
           'rgba(0, 0, 0, 1)'
         ]
 
-    // setup 
-    const data = {
-      labels: ['employee 0', 'employee 1', 'employee 2', 'employee 3', 'employee 4', 'employee 5', 'employee 6'],
-      datasets: [{
-        data: [
+    const employeeNames = ['employee 0', 'employee 1', 'employee 2', 'employee 3', 'employee 4', 'employee 5', 'employee 6']
+
+    const employeeFirstVacationArray = [
             ['2022-01-01', '2022-03-03'],
             ['2022-04-03', '2022-04-23'],
             ['2022-08-06', '2022-09-07'],
@@ -41,11 +39,9 @@
             ['2022-07-09', '2022-09-13'],
             ['2022-10-13', '2022-10-31'],
             ['2022-02-15', '2022-03-21']
-        ],
-        backgroundColor: chartColors
-      },
-      {
-        data: [
+        ]
+
+    const employeeSecondVacationArray = [
             ['2022-10-03', '2022-11-30'],
             ['2022-11-03', '2022-11-23'],
             ['2022-02-06', '2022-03-07'],
@@ -53,7 +49,17 @@
             ['2022-01-09', '2022-02-13'],
             ['2022-02-13', '2022-03-31'],
             ['2022-11-15', '2022-12-21']
-        ],
+        ]
+
+    // setup 
+    const data = {
+      labels: employeeNames,
+      datasets: [{
+        data: employeeFirstVacationArray,
+        backgroundColor: chartColors
+      },
+      {
+        data: employeeSecondVacationArray,
         backgroundColor: chartColors
       }
     ]
