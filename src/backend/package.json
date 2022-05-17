@@ -1,16 +1,16 @@
 {
-  "name": "project-name",
+  "name": "HolidayHandler-Backend",
   "version": "1.0.0",
   "description": "TypeScript",
   "scripts": {
-    "dev": "nodemon src/index.ts",
+    "dev": "nodemon index.ts",
     "build": "npm run lint && rimraf dist/ && tsc",
     "start": "npm run build && node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint src/**/*.ts"
+    "lint": "eslint **/*.ts"
   },
   "keywords": [],
-  "author": "Kevin Vogel",
+  "author": "Tobias Weiland",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^17.0.18",

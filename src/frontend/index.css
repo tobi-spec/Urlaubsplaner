@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif ;
+  }
+  .header {
+    width: 100vw;
+    height: 50px;
+    background: blue;
+    color: white;
+  }
+  .header p {
+    padding: 10px;
+    font-size: 30px;
+  }
+  .chartMenu {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .chartBox {
+    width: 1000px;
+    border-radius: 20px;
+    border: solid 3px blue;
+    background: white;
+    position: absolute;
+  }
