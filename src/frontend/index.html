@@ -15,43 +15,54 @@
           <canvas id="myChart"></canvas>
       </div>
     </div>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
-    <script>
+  </body>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+  <script>
 
-    const chartColors = [
-        'rgba(255, 26, 104, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)',
-          'rgba(0, 0, 0, 1)'
-        ]
+  drawChart()
 
-    const employeeNames = ['employee 0', 'employee 1', 'employee 2', 'employee 3', 'employee 4', 'employee 5', 'employee 6']
+  async function getEmployess() {
+    const baseUrl = "http://localhost:3000/"
+      response = await fetch( baseUrl+"employees")
+      return await response.json()
+  }
+
+  async function drawChart() {
+    const employeeNames = await getEmployess()
 
     const employeeFirstVacationArray = [
-            ['2022-01-01', '2022-03-03'],
-            ['2022-04-03', '2022-04-23'],
-            ['2022-08-06', '2022-09-07'],
-            ['2022-03-07', '2022-04-09'],
-            ['2022-07-09', '2022-09-13'],
-            ['2022-10-13', '2022-10-31'],
-            ['2022-02-15', '2022-03-21']
-        ]
+          ['2022-01-01', '2022-03-03'],
+          ['2022-04-03', '2022-04-23'],
+          ['2022-08-06', '2022-09-07'],
+          ['2022-03-07', '2022-04-09'],
+          ['2022-07-09', '2022-09-13'],
+          ['2022-10-13', '2022-10-31'],
+          ['2022-02-15', '2022-03-21']
+      ]
 
     const employeeSecondVacationArray = [
-            ['2022-10-03', '2022-11-30'],
-            ['2022-11-03', '2022-11-23'],
-            ['2022-02-06', '2022-03-07'],
-            ['2022-07-07', '2022-08-09'],
-            ['2022-01-09', '2022-02-13'],
-            ['2022-02-13', '2022-03-31'],
-            ['2022-11-15', '2022-12-21']
-        ]
+          ['2022-10-03', '2022-11-30'],
+          ['2022-11-03', '2022-11-23'],
+          ['2022-02-06', '2022-03-07'],
+          ['2022-07-07', '2022-08-09'],
+          ['2022-01-09', '2022-02-13'],
+          ['2022-02-13', '2022-03-31'],
+          ['2022-11-15', '2022-12-21']
+      ]
 
-    // setup 
+    const chartColors = [
+      'rgba(255, 26, 104, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)',
+        'rgba(0, 0, 0, 1)'
+      ]
+
+
+  // setup 
     const data = {
       labels: employeeNames,
       datasets: [{
@@ -65,7 +76,7 @@
     ]
     };
 
-    // config 
+  // config 
     const config = {
       type: 'bar',
       data,
@@ -96,7 +107,7 @@
       document.getElementById('myChart'),
       config
     );
-    </script>
-
-  </body>
+  }
+  
+  </script>
 </html>
