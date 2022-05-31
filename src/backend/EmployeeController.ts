@@ -1,4 +1,5 @@
 const express = require("express");
+const adapter = require("./EmployeeJSONAdapter")
 const app = express();
 const port = 3000;
 
@@ -13,7 +14,7 @@ app.get('/liveliness', (req, res) => {
 });
 
 app.get('/employees', (req, res) => {
-  const employees = ["Joachim", "Jörg", "Martina", "Ali", "Christian", "Tami", "Ute"]
+  const employees = adapter.getNames()
   res.send(employees);
 });
 
