@@ -13,11 +13,11 @@ app.get('/data', (req, res) => {
 });
 
 app.get('/index', function(req, res) {
-  res.sendFile('index.html', { root: __dirname });
+  res.sendFile('/static/index.html', { root: __dirname });
 });
 
 app.get('/index.css', function(req, res) {
-  res.sendFile('index.css', { root: __dirname });
+  res.sendFile('/static/index.css', { root: __dirname });
 });
 
 app.listen(port, () => {
