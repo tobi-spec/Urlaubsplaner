@@ -55,21 +55,21 @@ export function getPlotConfig() {
 
 
 function getNames(): string[] {
-    const rawData = fs.readFileSync("./data.json", "utf-8");
+    const rawData = fs.readFileSync("./data/data.json", "utf-8");
     const data = JSON.parse(rawData);
     const expression = jsonata("employees.name")
     return expression.evaluate(data)
 }
 
 function getColors(): string[] {
-    const rawData = fs.readFileSync("./colors.json", "utf-8");
+    const rawData = fs.readFileSync("./data/colors.json", "utf-8");
     const data = JSON.parse(rawData);
     const expression = jsonata("colors")
     return expression.evaluate(data)
 }
 
 export function getVaccations(): string[] {
-    const rawData = fs.readFileSync("./data.json", "utf-8");
+    const rawData = fs.readFileSync("./data/data.json", "utf-8");
     const data = JSON.parse(rawData);
     const expression = jsonata("employees.[vaccation]")
     return expression.evaluate(data)
