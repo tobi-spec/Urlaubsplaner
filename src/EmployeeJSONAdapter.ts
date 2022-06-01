@@ -1,7 +1,7 @@
 const fs = require("fs")
 var jsonata = require("jsonata");
 
-export function getPlotData() {
+export function getPlotConfig() {
     const employeeFirstVacationArray = [
         ['2022-01-01', '2022-03-03'],
         ['2022-04-03', '2022-04-23'],
