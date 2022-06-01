@@ -13,11 +13,11 @@ app.get('/data', (req, res) => {
 });
 
 app.get('/index', function(req, res) {
-  res.sendFile('/home/tobi/projects/Urlaubsplaner/src/index.html');
+  res.sendFile('index.html', { root: __dirname });
 });
 
 app.get('/index.css', function(req, res) {
-  res.sendFile('/home/tobi/projects/Urlaubsplaner/src/index.css');
+  res.sendFile('index.css', { root: __dirname });
 });
 
 app.listen(port, () => {
