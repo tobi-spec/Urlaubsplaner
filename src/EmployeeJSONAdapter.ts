@@ -2,25 +2,15 @@ const fs = require("fs")
 var jsonata = require("jsonata");
 
 export function getPlotConfig() {
-    const employeeFirstVacationArray = [
-        ['2022-01-01', '2022-03-03'],
-        ['2022-04-03', '2022-04-23'],
-        ['2022-08-06', '2022-09-07'],
-        ['2022-03-07', '2022-04-09'],
-    ]
-
-    const employeeSecondVacationArray = [
-        ['2022-10-03', '2022-11-30'],
-    ]
 
     const data = {
     labels: getNames(),
     datasets: [{
-        data: employeeFirstVacationArray,
+        data: getVaccations(0),
         backgroundColor: getColors()
     },
     {
-        data: employeeSecondVacationArray,
+        data: getVaccations(1),
         backgroundColor: getColors()
     }
     ]
@@ -68,10 +58,11 @@ function getColors(): string[] {
     return expression.evaluate(data)
 }
 
-export function getVaccations(): string[] {
+function getVaccations(number: number): string[] {
     const rawData = fs.readFileSync("./data/data.json", "utf-8");
     const data = JSON.parse(rawData);
-    const expression = jsonata("employees.[vaccation]")
+    const string = `employees.[vaccation[${number}]]`
+    const expression = jsonata(string)
     return expression.evaluate(data)
 }
 
