@@ -58,11 +58,11 @@ function getColors(): string[] {
     return expression.evaluate(data)
 }
 
-function getVaccations(number: number): string[] {
+function getVaccations(position: number): string[] {
     const rawData = fs.readFileSync("./data/data.json", "utf-8");
     const data = JSON.parse(rawData);
-    const string = `employees.[vaccation[${number}]]`
-    const expression = jsonata(string)
+    const expressionString = `employees.[vaccation[${position}]]`
+    const expression = jsonata(expressionString)
     return expression.evaluate(data)
 }
 
