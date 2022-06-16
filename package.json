@@ -4,7 +4,7 @@
   "description": "TypeScript",
   "scripts": {
     "start": "ts-node src/EmployeeController.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --config ./jest.config.ts",
     "prettier": "prettier --config .prettierrc '**/*.ts' --write",
     "lint": "eslint **/*.ts"
   },
@@ -12,7 +12,7 @@
   "author": "Tobias Weiland",
   "license": "ISC",
   "devDependencies": {
-    "@types/jest": "^28.1.1",
+    "@types/jest": "^28.0.5",
     "@types/node": "^17.0.18",
     "@typescript-eslint/eslint-plugin": "^5.12.1",
     "@typescript-eslint/parser": "^5.12.1",
