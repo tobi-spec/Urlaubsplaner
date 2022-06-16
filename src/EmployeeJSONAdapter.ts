@@ -1,7 +1,7 @@
 import fs from "fs";
 import jsonata from "jsonata";
 
-export function createPlotConfig(): Object {
+export function createPlotConfig() {
     const config = {
     type: 'bar',
     data: {
@@ -40,7 +40,7 @@ function countEmployees(): number {
     return getJSONData("./data/data.json", `$count(employees)`)
 }
 
-function createDataSets(): Object {
+function createDataSets() {
     const count = countEmployees()
     let max = 0;
     for (let i=0; i<count; i++) {
@@ -49,7 +49,7 @@ function createDataSets(): Object {
             max = occurency
         }
     }
-    let datasetArray = [];
+    const datasetArray = [];
     for(let i=0; i<max; i++) {
         const dataset = {
             data: getVaccations(i),

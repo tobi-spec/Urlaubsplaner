@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express';
-const adapter = require("./EmployeeJSONAdapter")
+import adapter = require("./EmployeeJSONAdapter")
 const app = express();
 const port = 3000;
 
