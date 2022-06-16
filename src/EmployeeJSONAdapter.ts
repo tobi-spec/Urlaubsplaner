@@ -1,5 +1,5 @@
-const fs = require("fs")
-const jsonata = require("jsonata");
+import fs from "fs";
+import jsonata from "jsonata";
 
 export function createPlotConfig(): Object {
     const config = {
@@ -40,7 +40,7 @@ function countEmployees(): number {
     return getJSONData("./data/data.json", `$count(employees)`)
 }
 
-function createDataSets() {
+function createDataSets(): Object {
     const count = countEmployees()
     let max = 0;
     for (let i=0; i<count; i++) {

@@ -1,4 +1,4 @@
-const express = require("express");
+import express from 'express';
 const adapter = require("./EmployeeJSONAdapter")
 const app = express();
 const port = 3000;
