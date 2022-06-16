@@ -2,10 +2,12 @@ const fs = require("fs")
 const jsonata = require("jsonata");
 
 export function createPlotConfig(): Object {
-    const data = createData()
     const config = {
     type: 'bar',
-    data,
+    data: {
+        labels: getNames(),
+        datasets: createDataSets()
+    },
     options: {
     plugins: {
         legend: {
@@ -30,16 +32,7 @@ export function createPlotConfig(): Object {
     return config
 }
 
-function createData(): Object {
-    const data = {
-        labels: getNames(),
-        datasets: createDataSets()
-    };
-    console.log(data)
-    return data
-}
-
-export function createDataSets() {
+function createDataSets() {
     const count = countEmployees()
     let max = 0;
     for (let i=0; i<count; i++) {
@@ -60,40 +53,30 @@ export function createDataSets() {
 }
 
 function getNames(): string[] {
-    const rawData = fs.readFileSync("./data/data.json", "utf-8");
-    const data = JSON.parse(rawData);
-    const expression = jsonata("employees.name")
-    return expression.evaluate(data)
+    return getJSONData("./data/data.json", "employees.name")
 }
 
 function countEmployees(): number {
-    const rawData = fs.readFileSync("./data/data.json", "utf-8");
-    const data = JSON.parse(rawData);
-    const expressionString = `$count(employees)`
-    const expression = jsonata(expressionString)
-    return expression.evaluate(data)
+    return getJSONData("./data/data.json", `$count(employees)`)
 }
 
 function countEmployeeVaccationTimes(employee: number): number {
-    const rawData = fs.readFileSync("./data/data.json", "utf-8");
-    const data = JSON.parse(rawData);
-    const expressionString = `$count(employees[${employee}].vaccation)`
-    const expression = jsonata(expressionString)
-    return expression.evaluate(data)
+    return getJSONData("./data/data.json", `$count(employees[${employee}].vaccation)`)
 } 
 
 function getVaccations(position: number): string[] {
-    const rawData = fs.readFileSync("./data/data.json", "utf-8");
-    const data = JSON.parse(rawData);
-    const expressionString = `employees.[vaccation[${position}]]`
-    const expression = jsonata(expressionString)
-    return expression.evaluate(data)
+    return getJSONData("./data/data.json", `employees.[vaccation[${position}]]`)
 }
 
 function getColors(): string[] {
-    const rawData = fs.readFileSync("./data/colors.json", "utf-8");
+    return getJSONData("./data/colors.json", "colors")
+}
+
+// output of function is sometimes string and sometimes number, how to set output type?
+function getJSONData(jsonPath:string, jasonataExpression:string) {
+    const rawData = fs.readFileSync(jsonPath, "utf-8");
     const data = JSON.parse(rawData);
-    const expression = jsonata("colors")
+    const expression = jsonata(jasonataExpression)
     return expression.evaluate(data)
 }
 
