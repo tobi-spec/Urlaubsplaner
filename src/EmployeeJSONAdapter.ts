@@ -32,6 +32,14 @@ export function createPlotConfig(): Object {
     return config
 }
 
+function getNames(): string[] {
+    return getJSONData("./data/data.json", "employees.name")
+}
+
+function countEmployees(): number {
+    return getJSONData("./data/data.json", `$count(employees)`)
+}
+
 function createDataSets() {
     const count = countEmployees()
     let max = 0;
@@ -50,14 +58,6 @@ function createDataSets() {
         datasetArray.push(dataset)
     }
     return datasetArray
-}
-
-function getNames(): string[] {
-    return getJSONData("./data/data.json", "employees.name")
-}
-
-function countEmployees(): number {
-    return getJSONData("./data/data.json", `$count(employees)`)
 }
 
 function countEmployeeVaccationTimes(employee: number): number {
