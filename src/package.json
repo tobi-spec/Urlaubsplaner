@@ -4,8 +4,6 @@
   "description": "TypeScript",
   "scripts": {
     "dev": "ts-node EmployeeController.ts",
-    "build": "npm run lint && rimraf dist/ && tsc",
-    "start": "npm run build && node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint **/*.ts"
   },
@@ -20,7 +18,6 @@
     "eslint-config-prettier": "^8.4.0",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.5.1",
-    "rimraf": "^3.0.2",
     "ts-node": "^10.7.0",
     "typescript": "^4.5.5"
   },
