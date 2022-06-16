@@ -8,7 +8,7 @@ app.get('/status', (req, res) => {
 });
 
 app.get('/data', (req, res) => {
-  const config = adapter.getPlotConfig()
+  const config = adapter.createPlotConfig()
   res.send(config);
 });
 

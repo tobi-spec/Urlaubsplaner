@@ -1,21 +1,8 @@
 const fs = require("fs")
-var jsonata = require("jsonata");
+const jsonata = require("jsonata");
 
-export function getPlotConfig() {
-
-    const data = {
-    labels: getNames(),
-    datasets: [{
-        data: getVaccations(0),
-        backgroundColor: getColors()
-    },
-    {
-        data: getVaccations(1),
-        backgroundColor: getColors()
-    }
-    ]
-    };
-
+export function createPlotConfig() {
+    const data = createData()
     const config = {
     type: 'bar',
     data,
@@ -41,6 +28,22 @@ export function getPlotConfig() {
         }
     };
     return config
+}
+
+function createData(): Object {
+    const data = {
+        labels: getNames(),
+        datasets: [{
+            data: getVaccations(0),
+            backgroundColor: getColors()
+        },
+        {
+            data: getVaccations(1),
+            backgroundColor: getColors()
+        }
+        ]
+        };
+    return data
 }
 
 
