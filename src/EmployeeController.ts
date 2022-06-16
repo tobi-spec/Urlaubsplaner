@@ -4,8 +4,7 @@ const app = express();
 const port = 3000;
 
 app.get('/status', (req: Request, res: Response) => {
-  const result = adapter.createDataSets()
-  res.send(result)
+  res.send("Server runs!")
 });
 
 app.get('/data', (req: Request, res: Response) => {
