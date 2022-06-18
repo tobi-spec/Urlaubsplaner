@@ -10,7 +10,7 @@ app.get("/status", (req: Request, res: Response) => {
 
 app.get("/data", (req: Request, res: Response) => {
   const config = createPlotConfig();
-  res.send(config);
+  res.json(config);
 });
 
 app.get("/index", function (req: Request, res: Response) {
