@@ -13,7 +13,6 @@ describe("integrationtest for EmployeeController", () => {
     const actual = await request(app).get("/data");
     expect(actual.statusCode).toBe(200);
     expect(actual.type).toBe("application/json");
-    expect(actual.body.type).toBe("bar");
   });
 
   it("Get /info - success", async () => {
