@@ -5,7 +5,7 @@ import { createPlotConfig } from "./EmployeeJSONAdapter";
 const app = express();
 
 app.get("/status", (req: Request, res: Response) => {
-  res.send("Server runs!");
+  res.json("Server runs!");
 });
 
 app.get("/data", (req: Request, res: Response) => {
