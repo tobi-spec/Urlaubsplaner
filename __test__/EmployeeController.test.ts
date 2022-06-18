@@ -18,5 +18,11 @@ describe("integrationtest for EmployeeController", () => {
       expect(actual.body.type).toBe("bar")
     })
 
+    it("Get /info - success", async() => {
+      const actual = await request(app).get("/index")
+      expect(actual.statusCode).toBe(200)
+      expect(actual.type).toBe("text/html")
+    })
+
 
 })
