@@ -3,10 +3,17 @@ on: push
 jobs: 
   build: 
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [17.x]
+
     steps:
+    - name: Checking out code from the repository
     - uses: actions/checkout@v2
+
     - name: Install modules
       run: npm install
+      
     - name: Run tests
       run: npm run test
-      
