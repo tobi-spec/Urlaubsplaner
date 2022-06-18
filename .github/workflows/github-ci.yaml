@@ -1,0 +1,19 @@
+name: CI
+
+on: push
+jobs: 
+  test: 
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [17.x]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install node modules
+      run: npm install
+
+    - name: Run tests
+      run: npm run test:ci
