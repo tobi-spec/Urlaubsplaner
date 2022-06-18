@@ -24,5 +24,10 @@ describe("integrationtest for EmployeeController", () => {
       expect(actual.type).toBe("text/html")
     })
 
+    it("Get /info.css - success", async() => {
+      const actual = await request(app).get("/index.css")
+      expect(actual.statusCode).toBe(200)
+      expect(actual.type).toBe("text/css")
+    })
 
 })
