@@ -1,7 +1,7 @@
 name: CI
 on: push
 jobs: 
-  build: 
+  test: 
     runs-on: ubuntu-latest
 
     strategy:
@@ -9,11 +9,16 @@ jobs:
         node-version: [17.x]
 
     steps:
-    - name: Checking out code from the repository
     - uses: actions/checkout@v2
 
-    - name: Install modules
+    - name: Install node modules
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{matrix.node-version}}
       run: npm install
-      
+
     - name: Run tests
-      run: npm run test
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{matrix.node-version}}
+      run: npm run test:ci
