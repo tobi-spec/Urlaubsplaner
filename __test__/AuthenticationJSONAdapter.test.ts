@@ -6,8 +6,12 @@ describe("unittests for UserJSONAdapater", () => {
     const testPath = "./data/testUser.json";
     storeUserCredentials(testPath, "testUser", "user@user.de", "user123");
     const rawData = fs.readFileSync(testPath, "utf-8");
-    const data = JSON.parse(rawData)
-    const expected = { name: 'testUser', email: 'user@user.de', passwort: 'user123'}
-    expect(data["user"][0]).toStrictEqual(expected)
+    const data = JSON.parse(rawData);
+    const expected = {
+      name: "testUser",
+      email: "user@user.de",
+      passwort: "user123"
+    };
+    expect(data["user"][0]).toStrictEqual(expected);
   });
 });
