@@ -10,7 +10,7 @@ export function createUser(
   const data = JSON.parse(currentData);
 
   const newUser = {
-    user: name,
+    name: name,
     credentials: { email: email, passwort: passwort },
     vaccation: []
   };

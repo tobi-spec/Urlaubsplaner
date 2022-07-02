@@ -26,7 +26,7 @@ describe("unittests for UserJSONAdapater", () => {
     const rawData = fs.readFileSync(testPath, "utf-8");
     const data = JSON.parse(rawData);
     const expected = {
-      user: "testUser",
+      name: "testUser",
       credentials: {
         email: "user@user.de",
         passwort: "user456"
