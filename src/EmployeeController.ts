@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import { createPlotConfig } from "./EmployeeJSONAdapter";
 import { createUser } from "./AuthenticationJSONAdapter";
+import bcrypt from "bcrypt";
 
 const app = express();
 
@@ -23,17 +24,28 @@ app.get("/index.css", function (req: Request, res: Response) {
   res.sendFile("/static/index.css", { root: __dirname });
 });
 
+// TODO: auth functions into express subfolder
+
 app.get("/register", function (req: Request, res: Response) {
   res.sendFile("./static/register.html", { root: __dirname });
 });
 
-app.post("/register", function (req: Request, res: Response) {
-  createUser(
-    "./data/data.json",
-    req.body.name,
-    req.body.email,
-    req.body.passwort
-  );
+app.post("/register", async function (req: Request, res: Response) {
+  // if user created, if user already exists,
+  const hashedPassword = await bcrypt.hash(req.body.passwort, 10)
+  try {
+    createUser(
+      "./data/data.json",
+      req.body.name,
+      req.body.email,
+      hashedPassword
+    );
+    res.redirect("/login")
+  } catch {
+    // display message why registry was not successfull
+    res.redirect("/register")
+  }
+
 });
 
 app.get("/login", function (req: Request, res: Response) {
