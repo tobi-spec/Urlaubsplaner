@@ -32,7 +32,7 @@ app.get("/register", function (req: Request, res: Response) {
 
 app.post("/register", async function (req: Request, res: Response) {
   // if user created, if user already exists,
-  const hashedPassword = await bcrypt.hash(req.body.passwort, 10)
+  const hashedPassword = await bcrypt.hash(req.body.passwort, 10);
   try {
     createUser(
       "./data/data.json",
@@ -40,12 +40,11 @@ app.post("/register", async function (req: Request, res: Response) {
       req.body.email,
       hashedPassword
     );
-    res.redirect("/login")
+    res.redirect("/login");
   } catch {
     // display message why registry was not successfull
-    res.redirect("/register")
+    res.redirect("/register");
   }
-
 });
 
 app.get("/login", function (req: Request, res: Response) {
