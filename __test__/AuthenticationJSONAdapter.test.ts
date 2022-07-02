@@ -1,17 +1,37 @@
-import { storeUserCredentials } from "../src/AuthenticationJSONAdapter";
+import { createUser } from "../src/AuthenticationJSONAdapter";
 import fs from "fs";
 
 describe("unittests for UserJSONAdapater", () => {
-  test("test storeUserData()", () => {
-    const testPath = "./data/testUser.json";
-    storeUserCredentials(testPath, "testUser", "user@user.de", "user123");
+  afterEach(() => {
+    const jsonObject = {
+      employees: [
+        {
+          user: "employee1",
+          credentials: { email: "user@user.de", passwort: "user123" },
+          vaccation: [
+            ["2022-01-01", "2022-03-03"],
+            ["2022-10-01", "2022-11-01"]
+          ]
+        }
+      ]
+    };
+    const path = "./data/testData.json";
+    const writeObject = JSON.stringify(jsonObject);
+    fs.writeFileSync(path, writeObject);
+  });
+
+  test("test storeUserCredentials()", () => {
+    const testPath = "./data/testData.json";
+    createUser(testPath, "testUser", "user@user.de", "user456");
     const rawData = fs.readFileSync(testPath, "utf-8");
     const data = JSON.parse(rawData);
     const expected = {
-      name: "testUser",
-      email: "user@user.de",
-      passwort: "user123"
+      user: "testUser",
+      credentials: {
+        email: "user@user.de",
+        passwort: "user456"
+      }
     };
-    expect(data["user"][0]).toStrictEqual(expected);
+    expect(data["employees"][1]).toStrictEqual(expected);
   });
 });

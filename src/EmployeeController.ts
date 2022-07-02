@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
 import { createPlotConfig } from "./EmployeeJSONAdapter";
-import { storeUserCredentials } from "./AuthenticationJSONAdapter";
+import { createUser } from "./AuthenticationJSONAdapter";
 
 const app = express();
 
@@ -28,7 +28,7 @@ app.get("/register", function (req: Request, res: Response) {
 });
 
 app.post("/register", function (req: Request, res: Response) {
-  storeUserCredentials(
+  createUser(
     "../data/user.json",
     req.body.name,
     req.body.email,
