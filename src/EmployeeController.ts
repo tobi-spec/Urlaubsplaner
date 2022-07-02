@@ -29,7 +29,7 @@ app.get("/register", function (req: Request, res: Response) {
 
 app.post("/register", function (req: Request, res: Response) {
   createUser(
-    "../data/user.json",
+    "./data/data.json",
     req.body.name,
     req.body.email,
     req.body.passwort

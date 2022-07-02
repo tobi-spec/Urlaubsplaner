@@ -11,7 +11,8 @@ export function createUser(
 
   const newUser = {
     user: name,
-    credentials: { email: email, passwort: passwort }
+    credentials: { email: email, passwort: passwort },
+    vaccation: []
   };
 
   data["employees"].push(newUser);

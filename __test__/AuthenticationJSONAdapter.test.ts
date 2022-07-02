@@ -30,7 +30,8 @@ describe("unittests for UserJSONAdapater", () => {
       credentials: {
         email: "user@user.de",
         passwort: "user456"
-      }
+      },
+      vaccation: []
     };
     expect(data["employees"][1]).toStrictEqual(expected);
   });
