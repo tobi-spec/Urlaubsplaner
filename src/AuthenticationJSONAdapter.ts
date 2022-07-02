@@ -1,6 +1,6 @@
 import fs from "fs";
 
-export function storeUserData(
+export function storeUserCredentials(
   outputPath: string,
   name: string,
   email: string,

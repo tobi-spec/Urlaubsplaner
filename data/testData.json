@@ -2,14 +2,17 @@
     "employees": [
         {
             "name": "employee1",
+            "credentials": { "name": "testUser", "email": "user@user.de", "passwort": "user123"},
             "vaccation": [["2022-01-01", "2022-03-03"], ["2022-10-01", "2022-11-01"]]
         },
         {
             "name": "employee2",
+            "credentials": { "name": "testUser", "email": "user@user.de", "passwort": "user123"},
             "vaccation": [["2022-04-01", "2022-05-01"], ["2022-11-01", "2022-12-01"]]
         },
         {
             "name": "employee3",
+            "credentials": { "name": "testUser", "email": "user@user.de", "passwort": "user123"},
             "vaccation": [["2022-08-01", "2022-09-01"]]
         }
     ]
