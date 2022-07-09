@@ -1,21 +1,17 @@
 import fs from "fs";
+import { Employee } from "./Employee";
 
-export function createUser(
+export function createEmployee(
   outputPath: string,
   name: string,
-  email: string,
   passwort: string
 ) {
   const currentData = fs.readFileSync(outputPath, "utf-8");
   const data = JSON.parse(currentData);
 
-  const newUser = {
-    name: name,
-    credentials: { email: email, passwort: passwort },
-    vaccation: []
-  };
+  const newEmployee = new Employee(name, passwort)
 
-  data["employees"].push(newUser);
+  data["employees"].push(newEmployee);
   const updateData = JSON.stringify(data);
   fs.writeFileSync(outputPath, updateData);
 }

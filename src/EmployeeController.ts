@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
 import { createPlotConfig } from "./EmployeeJSONAdapter";
-import { createUser } from "./AuthenticationJSONAdapter";
+import { createEmployee } from "./AuthenticationJSONAdapter";
 import bcrypt from "bcrypt";
 
 const app = express();
@@ -34,10 +34,9 @@ app.post("/register", async function (req: Request, res: Response) {
   // if user created, if user already exists,
   const hashedPassword = await bcrypt.hash(req.body.passwort, 10);
   try {
-    createUser(
+    createEmployee(
       "./data/data.json",
       req.body.name,
-      req.body.email,
       hashedPassword
     );
     res.redirect("/login");
