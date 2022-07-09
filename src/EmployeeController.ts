@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import { createPlotConfig } from "./EmployeeJSONAdapter";
+import { PlotConfig } from "./PlotConfig";
 import { createEmployee } from "./AuthenticationJSONAdapter";
 import bcrypt from "bcrypt";
 
@@ -12,7 +12,7 @@ app.get("/status", (req: Request, res: Response) => {
 });
 
 app.get("/data", (req: Request, res: Response) => {
-  const config = createPlotConfig();
+  const config = new PlotConfig()
   res.json(config);
 });
 

@@ -1,41 +1,12 @@
 import fs from "fs";
 import jsonata from "jsonata";
 
-export function createPlotConfig() {
-  const config = {
-    type: "bar",
-    data: {
-      labels: getNames(),
-      datasets: createDataSets()
-    },
-    options: {
-      plugins: {
-        legend: {
-          display: false
-        }
-      },
-      indexAxis: "y",
-      scales: {
-        xAxes: {
-          min: new Date(new Date().getFullYear(), 0, 1),
-          max: new Date(new Date().getFullYear(), 11, 31),
-          type: "time",
-          time: {
-            unit: "day"
-          }
-        },
-        yAxes: {}
-      }
-    }
-  };
-  return config;
-}
 
-function getNames(): string[] {
+export function getNames(): string[] {
   return getJSONData("./data/data.json", "employees.name");
 }
 
-function createDataSets() {
+export function createDataSets() {
   const count = countEmployees();
   let max = 0;
   for (let i = 0; i < count; i++) {

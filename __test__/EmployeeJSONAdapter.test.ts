@@ -1,8 +1,8 @@
-import { createPlotConfig } from "../src/EmployeeJSONAdapter";
+import { PlotConfig } from "../src/PlotConfig";
 
 describe("unittest for EmployeeJSONAdapater", () => {
   test("test createPlotConfig() ", () => {
-    const result = createPlotConfig();
+    const result = new PlotConfig;
     expect(result.type).toBe("bar");
     expect(result.data.labels).toBeTruthy;
     expect(result.options.plugins.legend.display).toBeFalsy;
