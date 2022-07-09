@@ -1,7 +1,7 @@
 import { PlotConfig } from "../src/objects/PlotConfig";
 
-describe("unittest for PlotConfig", () => {
-  test("test createPlotConfig() ", () => {
+describe("unittest for PlotConfig class", () => {
+  test("test PlotConfig constructor ", () => {
     const result = new PlotConfig;
     expect(result.type).toBe("bar");
     expect(result.data.labels).toBeTruthy;
