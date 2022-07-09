@@ -23,10 +23,12 @@ export class EmployeeJSONAdapater {
     fs.writeFileSync(this.path, updateData);
   }
   
+  // write test
   public getNames(): string[] {
     return this.getJSONData("employees.name");
   }
   
+    // write tests
   public createDataSets() {
     const count = this.countEmployees();
     let max = 0;

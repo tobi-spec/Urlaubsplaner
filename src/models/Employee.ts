@@ -9,6 +9,7 @@ export class Employee {
         this.vaccation = []
     }
 
+    // check for dat formate?
     public addVacation(start: string, end:string) {
         this.vaccation.push([start, end])
     } 
