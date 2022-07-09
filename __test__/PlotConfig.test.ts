@@ -1,6 +1,6 @@
 import { PlotConfig } from "../src/objects/PlotConfig";
 
-describe("unittest for EmployeeJSONAdapater", () => {
+describe("unittest for PlotConfig", () => {
   test("test createPlotConfig() ", () => {
     const result = new PlotConfig;
     expect(result.type).toBe("bar");
