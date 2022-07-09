@@ -1,6 +1,7 @@
-import { getNames, createDataSets } from "../EmployeeJSONAdapter"
+import { EmployeeJSONAdapater} from "../EmployeeJSONAdapter"
 
 export class PlotConfig {
+    employeeJSONAdapater: EmployeeJSONAdapater
     type:string
     // types?
     data: any
@@ -26,8 +27,9 @@ export class PlotConfig {
       }
 
     constructor() {
+        this.employeeJSONAdapater = new EmployeeJSONAdapater("./data/data.json")
         this.type = "bar"
-        this.data = { labels: getNames(), datasets: createDataSets() }
+        this.data = { labels: this.employeeJSONAdapater.getNames(), datasets: this.employeeJSONAdapater.createDataSets() }
         this.options = this.opt
     }
 }
