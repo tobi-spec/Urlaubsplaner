@@ -12,6 +12,6 @@ export function createEmployee(
   const newEmployee = new Employee(name, passwort)
 
   data["employees"].push(newEmployee);
-  const updateData = JSON.stringify(data);
+  const updateData = JSON.stringify(data, null, "\t");
   fs.writeFileSync(outputPath, updateData);
 }

@@ -1,1 +1,23 @@
-{"employees":[{"name":"employee1","password":"user123","vaccation":[["2022-01-01","2022-03-03"],["2022-10-01","2022-11-01"]]},{"name":"testUser","password":"user456","vaccation":[]}]}
+{
+	"employees": [
+		{
+			"name": "employee1",
+			"password": "user123",
+			"vaccation": [
+				[
+					"2022-01-01",
+					"2022-03-03"
+				],
+				[
+					"2022-10-01",
+					"2022-11-01"
+				]
+			]
+		},
+		{
+			"name": "testUser",
+			"password": "user456",
+			"vaccation": []
+		}
+	]
+}

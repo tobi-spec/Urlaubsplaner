@@ -11,7 +11,7 @@ describe("unittests for EmployeeJSONAdapater", () => {
     const testData = { "employees": [employee]}
 
     const path = "./data/testData.json";
-    const jsonObject = JSON.stringify(testData)
+    const jsonObject = JSON.stringify(testData, null, "\t")
     fs.writeFileSync(path, jsonObject);
   });
 
