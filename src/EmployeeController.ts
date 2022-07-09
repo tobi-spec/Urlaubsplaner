@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
 import { PlotConfig } from "./PlotConfig";
-import { createEmployee } from "./AuthenticationJSONAdapter";
+import { createEmployee } from "./EmployeeJSONAdapter";
 import bcrypt from "bcrypt";
 
 const app = express();

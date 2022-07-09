@@ -1,4 +1,4 @@
-import { createEmployee } from "../src/AuthenticationJSONAdapter";
+import { createEmployee } from "../src/EmployeeJSONAdapter";
 import { Employee } from "../src/Employee";
 import fs from "fs";
 
