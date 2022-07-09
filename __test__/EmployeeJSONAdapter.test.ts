@@ -1,4 +1,4 @@
-import { PlotConfig } from "../src/PlotConfig";
+import { PlotConfig } from "../src/objects/PlotConfig";
 
 describe("unittest for EmployeeJSONAdapater", () => {
   test("test createPlotConfig() ", () => {

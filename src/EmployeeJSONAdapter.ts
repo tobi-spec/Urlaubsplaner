@@ -1,6 +1,6 @@
 import fs from "fs";
 import jsonata from "jsonata";
-import { Employee } from "./Employee";
+import { Employee } from "./objects/Employee";
 
 export function createEmployee(
   outputPath: string,

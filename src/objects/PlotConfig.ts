@@ -1,4 +1,4 @@
-import { getNames, createDataSets } from "./EmployeeJSONAdapter"
+import { getNames, createDataSets } from "../EmployeeJSONAdapter"
 
 export class PlotConfig {
     type:string

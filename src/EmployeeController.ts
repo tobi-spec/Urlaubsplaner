@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import { PlotConfig } from "./PlotConfig";
+import { PlotConfig } from "./objects/PlotConfig";
 const authRouter = require("./AuthRouter")
 
 

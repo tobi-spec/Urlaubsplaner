@@ -1,5 +1,5 @@
 import { createEmployee } from "../src/EmployeeJSONAdapter";
-import { Employee } from "../src/Employee";
+import { Employee } from "../src/objects/Employee";
 import fs from "fs";
 
 describe("unittests for EmployeeJSONAdapater", () => {
