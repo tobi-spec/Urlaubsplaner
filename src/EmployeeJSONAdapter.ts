@@ -1,6 +1,6 @@
 import fs from "fs";
 import jsonata from "jsonata";
-import { Employee } from "./objects/Employee";
+import { Employee } from "./models/Employee";
 
 export class EmployeeJSONAdapater {
   path:string

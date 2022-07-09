@@ -1,4 +1,4 @@
-import { PlotConfig } from "../../src/objects/PlotConfig";
+import { PlotConfig } from "../../src/models/PlotConfig";
 
 describe("unittest for PlotConfig class", () => {
   test("test PlotConfig constructor ", () => {

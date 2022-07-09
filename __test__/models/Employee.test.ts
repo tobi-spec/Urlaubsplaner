@@ -1,4 +1,4 @@
-import { Employee } from "../../src/objects/Employee";
+import { Employee } from "../../src/models/Employee";
 
 describe("unittests for Employee class", () => {
     test("test Employee constructor", () => {
