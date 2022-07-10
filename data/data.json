@@ -2,7 +2,7 @@
     "employees":[
        {
         "name":"Joachim",
-        "passwort":"user123",
+        "passwort":"$2a$10$BlTZrEuOya2mo5NVvetV1OWfqm72xo1.qNUFpwqmvWFSU2JFcIDcu",
         "vaccation":[
              [
                 "2022-01-01",
@@ -16,7 +16,7 @@
        },
        {
         "name":"Jörg",
-        "passwort":"user123",
+        "passwort":"$2a$10$Mf565MafcIWZAS5FLqaBVO.ASmMTVMrsAK6dGGu4oWnGqNDE6a9pe",
         "vaccation":[
              [
                 "2022-04-03",
@@ -30,7 +30,7 @@
        },
        {
         "name":"Martina",
-        "passwort":"user123",
+        "passwort":"$2a$10$VOEipDj5dmvDQsTC6L9osu30OUG1QzNqePaEbKvDRhchnH5SniUpW",
         "vaccation":[
              [
                 "2022-08-06",
@@ -40,7 +40,7 @@
        },
        {
         "name":"Christian",
-        "passwort":"user123",
+        "passwort":"$2a$10$oK9wK6iwAeJUX62.y58hXeLsGqHoW936iyOYAhj4v9h9TDs1NK4qG",
         "vaccation":[
              [
                 "2022-03-07",

@@ -1,6 +1,7 @@
 import fs from "fs";
 import jsonata from "jsonata";
 import { Employee } from "./models/Employee";
+import bcrypt from "bcrypt";
 
 export class EmployeeJSONAdapater {
   path:string
@@ -9,19 +10,19 @@ export class EmployeeJSONAdapater {
     this.path = path
   }
 
-  public createEmployee(
+  public async createEmployee(
     name: string,
     passwort: string
   ) {
     const currentData = fs.readFileSync(this.path, "utf-8");
     const data = JSON.parse(currentData);
-  
-    const newEmployee = new Employee(name, passwort)
-  
+    const hash = await bcrypt.hash(passwort, 10)
+    
+    const newEmployee = new Employee(name, hash)
     data["employees"].push(newEmployee);
     const updateData = JSON.stringify(data, null, "\t");
     fs.writeFileSync(this.path, updateData);
-  }
+    }
   
   // write test
   public getNames(): string[] {

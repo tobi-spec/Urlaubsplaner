@@ -2,7 +2,7 @@
 	"employees": [
 		{
 			"name": "employee1",
-			"password": "user123",
+			"password": "$2a$10$I8nZ18bhG7RfaZl1g8tMOOhrpT/hDSoo9Of.3gzUmrznXKJftUU2a",
 			"vaccation": [
 				[
 					"2022-01-01",
@@ -16,7 +16,7 @@
 		},
 		{
 			"name": "testUser",
-			"password": "user456",
+			"password": "$2b$10$/Ca85ViKRY5v0GfEYwFc5usdZtd.1iTjOHfME9iToNYQqg0UG4kFa",
 			"vaccation": []
 		}
 	]
