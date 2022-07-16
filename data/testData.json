@@ -13,11 +13,6 @@
 					"2022-11-01"
 				]
 			]
-		},
-		{
-			"name": "testUser",
-			"password": "$2b$10$/Ca85ViKRY5v0GfEYwFc5usdZtd.1iTjOHfME9iToNYQqg0UG4kFa",
-			"vaccation": []
 		}
 	]
 }

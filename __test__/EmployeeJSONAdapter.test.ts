@@ -31,4 +31,13 @@ describe("unittests for EmployeeJSONAdapater", () => {
     expect(bcrypt.compareSync("user456", Object.values(actual)[1])).toBe(true)
     expect(Object.values(actual)[2]).toEqual([])
   });
+
+  test("test getEmployeeByName()", () => {
+    const employeeJSONAdapater = new EmployeeJSONAdapater(testPath)
+    const employee = employeeJSONAdapater.getEmployeeByName("employee1")
+
+    expect(Object.values(employee)[0]).toBe("employee1");
+    expect(Object.values(employee)[1]).toBe("$2a$10$I8nZ18bhG7RfaZl1g8tMOOhrpT/hDSoo9Of.3gzUmrznXKJftUU2a");
+    expect(Object.values(employee)[2]).toStrictEqual([["2022-01-01","2022-03-03"],["2022-10-01","2022-11-01"]]);
+  })
 });

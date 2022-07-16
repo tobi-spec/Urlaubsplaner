@@ -5,8 +5,6 @@ const authRouter = require("./AuthRouter")
 
 const app = express();
 
-app.use(express.urlencoded({ extended: false }));
-
 app.get("/status", (req: Request, res: Response) => {
   res.json("Server runs!");
 });
@@ -24,7 +22,7 @@ app.get("/index.css", function (req: Request, res: Response) {
   res.sendFile("/static/index.css", { root: __dirname });
 });
 
-app.use("/auth", authRouter)
+app.use(authRouter)
 
 
 
