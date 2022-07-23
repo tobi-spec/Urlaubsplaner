@@ -6,7 +6,6 @@ import bcrypt from "bcrypt";
 describe("unittests for EmployeeJSONAdapater", () => {
   const testPath = "./data/testData.json"
 
-  // Not needed by now
   beforeEach(() => {
     const employee = new Employee("employee1", "$2a$10$I8nZ18bhG7RfaZl1g8tMOOhrpT/hDSoo9Of.3gzUmrznXKJftUU2a")
     employee.addVacation("2022-01-01", "2022-03-03")
@@ -32,9 +31,9 @@ describe("unittests for EmployeeJSONAdapater", () => {
     expect(Object.values(actual)[2]).toEqual([])
   });
 
-  test("test getEmployeeByName()", () => {
+  test("test getEmployeeByName()", async() => {
     const employeeJSONAdapater = new EmployeeJSONAdapater(testPath)
-    const employee = employeeJSONAdapater.getEmployeeByName("employee1")
+    const employee = await employeeJSONAdapater.getEmployeeByName("employee1")
 
     expect(Object.values(employee)[0]).toBe("employee1");
     expect(Object.values(employee)[1]).toBe("$2a$10$I8nZ18bhG7RfaZl1g8tMOOhrpT/hDSoo9Of.3gzUmrznXKJftUU2a");
