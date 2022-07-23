@@ -24,7 +24,7 @@ export class EmployeeJSONAdapater {
     fs.writeFileSync(this.path, updateData);
     }
 
-  public getEmployeeByName(wantedName:string){
+  public async getEmployeeByName(wantedName:string){
     const names: string[] = this.getNames()
     const position = names.indexOf(wantedName)
     if(position === -1){

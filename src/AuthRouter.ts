@@ -8,38 +8,38 @@ const LocalStrategy = require("passport-local").Strategy
 
 const employeeJSONAdapater = new EmployeeJSONAdapater("./data/data.json")
 
+let strategy = new LocalStrategy(
+  async function(username:string, password:string, done) {
+    let user;
+    try {
+      user = await employeeJSONAdapater.getEmployeeByName(username);
+      if (!user) {
+        return done(null, false, {message: 'No user by that name'});
+      }
+    } catch (e) {
+      return done(e);
+    }
+    let match = await bcrypt.compare(password, user["passwort"], function(result) {
+      if (!match) {
+        console.log(password)
+        console.log(user["passwort"])
+        return done(null, false, {message: 'Not a matching password'});
+      }
+      return done(null, user);
+  })
+  }
+);
+
 const router = express.Router()
 router.use(session({
     secret: "env.secret", // move to .env file
     resave: false,
     saveUninitialized: true
 }))
+router.use(express.json())
 router.use(express.urlencoded({ extended: false }));
 router.use(passport.initialize());
 router.use(passport.session());
-
-
-let strategy = new LocalStrategy(
-    async function(name:string, password:string, done) {
-      let user;
-      try {
-        user = await employeeJSONAdapater.getEmployeeByName(name);
-        console.log(user)
-        if (!user) {
-          return done(null, false, {message: 'No user by that name'});
-        }
-      } catch (e) {
-        return done(e);
-      }
-      let match = bcrypt.compare(password, user[1])
-      console.log(match)
-      if (!match) {
-        return done(null, false, {message: 'Not a matching password'});
-      }
-      return done(null, user);
-    }
-  );
-
 passport.use(strategy)
 
 passport.serializeUser(function(user:Express.User, done) {
