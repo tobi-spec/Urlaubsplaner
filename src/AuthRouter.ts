@@ -11,24 +11,14 @@ const employeeJSONAdapater = new EmployeeJSONAdapater("./data/data.json")
 let strategy = new LocalStrategy(
   async function(username:string, password:string, done) {
     let user;
-    try {
-      user = await employeeJSONAdapater.getEmployeeByName(username);
-      if (!user) {
-        return done(null, false, {message: 'No user by that name'});
-      }
-    } catch (e) {
-      return done(e);
-    }
-    let match = await bcrypt.compare(password, user["passwort"], function(result) {
-      if (!match) {
-        console.log(password)
-        console.log(user["passwort"])
-        return done(null, false, {message: 'Not a matching password'});
-      }
+    user = await employeeJSONAdapater.getEmployeeByName(username);
+    let match = await bcrypt.compare(password, user["passwort"])
+    if (match) {
       return done(null, user);
-  })
-  }
-);
+    } else {
+      return done(null, false, {message: 'Username or password wrong'});
+    }
+    })
 
 const router = express.Router()
 router.use(session({
