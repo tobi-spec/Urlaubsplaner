@@ -10,20 +10,23 @@ const employeeJSONAdapater = new EmployeeJSONAdapater("./data/data.json")
 
 const strategy = new LocalStrategy(
   async function(username:string, password:string, done) {
-    let user;
-    user = await employeeJSONAdapater.getEmployeeByName(username);
-    if(user) {
-      let match = await bcrypt.compare(password, user["passwort"])
-      if (match) {
-        return done(null, user);
+    try {
+      let user;
+      user = await employeeJSONAdapater.getEmployeeByName(username);
+      if(user) {
+        let match = await bcrypt.compare(password, user["passwort"])
+        if (match) {
+          return done(null, user);
+        } else {
+          return done(null, false, {message: 'Username or password wrong'});
+        }
       } else {
         return done(null, false, {message: 'Username or password wrong'});
       }
-    } else {
-      return done(null, false, {message: 'Username or password wrong'});
+    }catch(err) {
+      done(err, null) 
     }
-
-    })
+  })
 
 const sessionParams = {
   secret: "env.secret", // move to .env file
