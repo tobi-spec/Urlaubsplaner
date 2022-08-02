@@ -1,6 +1,7 @@
-const LocalStrategy = require("passport-local").Strategy
 import { EmployeeJSONAdapater } from "../src/EmployeeJSONAdapter";
 import bcrypt from "bcrypt"
+//TODO: format import?
+const LocalStrategy = require("passport-local").Strategy
 
 const employeeJSONAdapater = new EmployeeJSONAdapater("./data/data.json")
 
