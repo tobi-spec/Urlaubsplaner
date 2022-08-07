@@ -2,6 +2,8 @@ import express, { Request, Response } from "express";
 import flash from "express-flash";
 import session from "express-session";
 import { PlotConfig } from "./models/PlotConfig";
+import {strategy ,serializerFunction, deserializerFunction} from "./AuthService";
+import passport from "passport";
 //TODO: format import?
 const authRouter = require("./AuthRouter")
 
@@ -12,12 +14,23 @@ const sessionParams = {
 }
 
 const app = express();
-app.set("view-engine", "ejs")
-app.set('views', __dirname)
-app.use(session(sessionParams))
-app.use(flash())
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }));
+
+app.set("view-engine", "ejs")
+app.set('views', __dirname)
+
+app.use(session(sessionParams))
+app.use(flash())
+
+passport.use(strategy)
+passport.serializeUser(serializerFunction);
+passport.deserializeUser(deserializerFunction)
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(authRouter)
 
 app.get("/status", (req: Request, res: Response) => {
   res.json("Server runs!");
@@ -35,9 +48,5 @@ app.get("/index", function (req: Request, res: Response) {
 app.get("/index.css", function (req: Request, res: Response) {
   res.sendFile("/views/index.css", { root: __dirname });
 });
-
-app.use(authRouter)
-
-
 
 export default app;

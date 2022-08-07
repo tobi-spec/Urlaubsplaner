@@ -5,7 +5,7 @@ const LocalStrategy = require("passport-local").Strategy
 
 const employeeJSONAdapater = new EmployeeJSONAdapater("./data/data.json")
 
-const strategy = new LocalStrategy(
+export const strategy = new LocalStrategy(
   async function(username:string, password:string, done) {
     try {
       let user;
@@ -26,13 +26,13 @@ const strategy = new LocalStrategy(
   })
 
 
-const serializerFunction = (user:Express.User, done) => {
+export const serializerFunction = (user:Express.User, done) => {
   done(null, user);
 }
 
-const deserializerFunction = async(name:string, done) => {
+export const deserializerFunction = (name:string, done) => {
   try {
-    let user = await employeeJSONAdapater.getEmployeeByName(name);
+    let user = employeeJSONAdapater.getEmployeeByName(name);
     if (!user) {
       return done(new Error('user not found'));
     }
@@ -41,11 +41,3 @@ const deserializerFunction = async(name:string, done) => {
     done(e);
   }
 }
-
-function initializePassport(passport) {
-    passport.use(strategy)
-    passport.serializeUser(serializerFunction);
-    passport.deserializeUser(deserializerFunction)
-}
-
-module.exports = initializePassport;
