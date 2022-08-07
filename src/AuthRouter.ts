@@ -1,6 +1,5 @@
 import express, { Request, Response } from "express";
 import passport from "passport";
-import {strategy ,serializerFunction, deserializerFunction} from "./AuthService";
 
 
 const router = express.Router()

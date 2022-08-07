@@ -41,3 +41,11 @@ export const deserializerFunction = (name:string, done) => {
     done(e);
   }
 }
+
+export const isAuth = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    next()
+  } else {
+    res.render("./views/login.ejs", { root: __dirname });
+  }
+}

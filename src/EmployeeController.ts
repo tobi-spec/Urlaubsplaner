@@ -2,7 +2,7 @@ import express, { Request, Response } from "express";
 import flash from "express-flash";
 import session from "express-session";
 import { PlotConfig } from "./models/PlotConfig";
-import {strategy ,serializerFunction, deserializerFunction} from "./AuthService";
+import {strategy ,serializerFunction, deserializerFunction, isAuth } from "./AuthService";
 import passport from "passport";
 //TODO: format import?
 const authRouter = require("./AuthRouter")
@@ -36,16 +36,16 @@ app.get("/status", (req: Request, res: Response) => {
   res.json("Server runs!");
 });
 
-app.get("/data", (req: Request, res: Response) => {
+app.get("/data", isAuth, (req: Request, res: Response) => {
   const config = new PlotConfig()
   res.json(config);
 });
 
-app.get("/index", function (req: Request, res: Response) {
+app.get("/index", isAuth, function (req: Request, res: Response) {
   res.render("./views/index.ejs", { root: __dirname });
 });
 
-app.get("/index.css", function (req: Request, res: Response) {
+app.get("/index.css", isAuth, function (req: Request, res: Response) {
   res.sendFile("/views/index.css", { root: __dirname });
 });
 
