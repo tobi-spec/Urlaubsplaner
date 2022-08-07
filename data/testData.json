@@ -1,16 +1,18 @@
 {
-    "employees": [
-        {
-            "name": "employee1",
-            "vaccation": [["2022-01-01", "2022-03-03"], ["2022-10-01", "2022-11-01"]]
-        },
-        {
-            "name": "employee2",
-            "vaccation": [["2022-04-01", "2022-05-01"], ["2022-11-01", "2022-12-01"]]
-        },
-        {
-            "name": "employee3",
-            "vaccation": [["2022-08-01", "2022-09-01"]]
-        }
-    ]
+	"employees": [
+		{
+			"name": "employee1",
+			"password": "$2a$10$I8nZ18bhG7RfaZl1g8tMOOhrpT/hDSoo9Of.3gzUmrznXKJftUU2a",
+			"vaccation": [
+				[
+					"2022-01-01",
+					"2022-03-03"
+				],
+				[
+					"2022-10-01",
+					"2022-11-01"
+				]
+			]
+		}
+	]
 }
