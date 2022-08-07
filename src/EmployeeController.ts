@@ -54,4 +54,8 @@ app.get("/index.css", isAuth, function (req: Request, res: Response) {
   res.sendFile("/views/index.css", { root: __dirname });
 });
 
+app.get("/login.css",  function (req: Request, res: Response) {
+  res.sendFile("/views/login.css", { root: __dirname });
+});
+
 export default app;
