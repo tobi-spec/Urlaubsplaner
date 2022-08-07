@@ -74,7 +74,10 @@ export class EmployeeJSONAdapater {
   }
 
   getColors(): string[] {
-    return this.getJSONData("colors");
+    const rawData = fs.readFileSync("./data/colors.json", "utf-8");
+    const data = JSON.parse(rawData);
+    const expression = jsonata("colors");
+    return expression.evaluate(data);
   }
 
   // output of function is sometimes string and sometimes number, how to set output type?
