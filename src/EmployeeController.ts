@@ -58,4 +58,10 @@ app.get("/login.css",  function (req: Request, res: Response) {
   res.sendFile("/views/login.css", { root: __dirname });
 });
 
+app.get("/icons8-logout-50.png",  function (req: Request, res: Response) {
+  res.sendFile("/views/icons8-logout.png", { root: __dirname });
+});
+
+
+
 export default app;
