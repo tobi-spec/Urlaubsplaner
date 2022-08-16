@@ -8,8 +8,6 @@
 
 body {
   display: flex;
-  background-color: #2F4960;
-  background-image: linear-gradient(to bottom right, #daebe8, 10%, #cfe0e8);
   align-items: center;
   justify-content: center;
   min-height: 100vh;
@@ -22,7 +20,8 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  background-image: linear-gradient(to right, #86af49, #82b74b);
+  background-image: linear-gradient(to right, #96ceb4, #ffeead);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .header h1 {
@@ -30,15 +29,15 @@ body {
   margin-bottom: 10px;
   margin-left: 8px;
   right: 50%;
-  color: #fff;
-  font-size: 30px;
+  color: black;
+  font-size: 26px;
   text-transform: uppercase;
 }
 
 img {
   margin-right: 8px;
   padding: 10px;
-  height: 35px;
+  height: 50px;
 }
  
 .chartBox {
