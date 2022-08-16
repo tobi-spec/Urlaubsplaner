@@ -1,28 +1,48 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: sans-serif ;
+    box-sizing: border-box;
+    
+    font-family: "Fira sans", sans-serif ;
   }
-  .header {
-    width: 100vw;
-    height: 50px;
-    background: blue;
-    color: white;
-  }
-  .header p {
-    padding: 10px;
-    font-size: 30px;
-  }
-  .chartMenu {
-    height: 90vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .chartBox {
-    width: 1000px;
-    border-radius: 20px;
-    border: solid 3px blue;
-    background: white;
-    position: absolute;
-  }
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+} 
+
+.header {  
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-image: linear-gradient(to right, #96ceb4, #ffeead);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.header h1 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 8px;
+  right: 50%;
+  color: black;
+  font-size: 26px;
+  text-transform: uppercase;
+}
+
+img {
+  margin-right: 8px;
+  padding: 10px;
+  height: 50px;
+}
+ 
+.chartBox {
+  width: 70vw;
+  border-radius: 20px;
+  border: solid 3px black;
+  background: white;
+}
