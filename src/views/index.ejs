@@ -26,8 +26,7 @@
   drawChart()
 
   async function drawChart() {
-    const baseUrl = "http://localhost:3000/"
-    response = await fetch( baseUrl+"data")
+    response = await fetch("data")
     const config = await response.json()
 
     // render init block
