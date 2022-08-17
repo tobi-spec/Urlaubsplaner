@@ -1,4 +1,4 @@
-import express, { Request, Response } from "express";
+import express, { NextFunction, Request, Response } from "express";
 import passport from "passport";
 
 const router = express.Router();
@@ -18,6 +18,15 @@ router.post(
 
 router.get("/login.css",  function (req: Request, res: Response) {
   res.sendFile("/views/login.css", { root: __dirname });
+});
+
+router.get('/logout', function(req: Request, res: Response, next: NextFunction) {
+  req.logout(function(err) {
+    if (err) { 
+      return next(err); 
+    }
+    res.redirect('/login');
+  });
 });
 
 module.exports = router;

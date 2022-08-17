@@ -10,7 +10,7 @@
     <div class="header">
       <h1>Holiday Handler</h1>
       <div class="menu">
-        <img src="icons8-logout-50.png" >
+        <a href="logout"><img src="icons8-logout-50.png" ></a>
       </div>
     </div>
     <div class="chartMenu">
@@ -26,8 +26,7 @@
   drawChart()
 
   async function drawChart() {
-    const baseUrl = "http://localhost:3000/"
-    response = await fetch( baseUrl+"data")
+    response = await fetch("data")
     const config = await response.json()
 
     // render init block
