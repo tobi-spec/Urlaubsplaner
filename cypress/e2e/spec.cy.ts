@@ -6,6 +6,20 @@ describe('e2e tests', () => {
     cy.contains('Username')
   })
 
+  it("Test /index is protected", () => {
+    cy.visit('localhost:3000/login')
+    cy.contains('Holiday Handler')
+    cy.contains('Login')
+    cy.contains('Username')
+  })
+
+  it("Test /data is protected", () => {
+    cy.visit('localhost:3000/data')
+    cy.contains('Holiday Handler')
+    cy.contains('Login')
+    cy.contains('Username')
+  })
+
   it("E2E wrong username", () => {
     cy.visit('localhost:3000/login')
     cy.get('[data-test-id=testUsername]').click().type("WrongName")
