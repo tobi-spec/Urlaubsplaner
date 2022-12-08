@@ -41,6 +41,10 @@ app.get("/status", (req: Request, res: Response) => {
   res.json("Server runs!");
 });
 
+app.get("/", (req: Request, res: Response) => {
+  res.redirect('/login');
+});
+
 app.get("/data", isAuth, (req: Request, res: Response) => {
   const config = new PlotConfig();
   res.json(config);

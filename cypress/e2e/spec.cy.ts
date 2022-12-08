@@ -1,4 +1,11 @@
 describe('e2e tests', () => {
+  it("Test redirect from base url", () => {
+    cy.visit('localhost:3000')
+    cy.contains('Holiday Handler')
+    cy.contains('Login')
+    cy.contains('Username')
+  })
+
   it("E2E wrong username", () => {
     cy.visit('localhost:3000/login')
     cy.get('[data-test-id=testUsername]').click().type("WrongName")
