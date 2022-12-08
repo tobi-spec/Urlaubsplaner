@@ -1,9 +1,19 @@
 describe('e2e tests', () => {
-  it('login in', () => {
+  it('login, check elements, logout', () => {
     cy.visit('localhost:3000/login')
     cy.contains('Holiday Handler')
     cy.contains('Login')
     cy.contains('Username')
+    cy.get('[data-test-id=testUsername]').click().type("Joachim")
     cy.contains('Password')
+    cy.get('[data-test-id=testPassword]').click().type("user123")
+    cy.get('[data-test-id=testLoginButton]').contains("Login").click()
+
+    cy.wait(1000)
+
+    cy.get("[data-test-id=testTitle]").contains('Holiday Handler')
+    cy.get("[data-test-id=testCalendarCanvas]")
+    cy.get("[data-test-id=testLogout]").click()
+
   })
 })
