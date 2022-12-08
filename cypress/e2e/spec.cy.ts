@@ -1,5 +1,23 @@
 describe('e2e tests', () => {
-  it('login, check elements, logout', () => {
+  it("E2E wrong username", () => {
+    cy.visit('localhost:3000/login')
+    cy.get('[data-test-id=testUsername]').click().type("WrongName")
+    cy.get('[data-test-id=testPassword]').click().type("user123")
+    cy.get('[data-test-id=testLoginButton]').contains("Login").click()
+    cy.get("[data-test-id=testErrorMessage]").contains("username or password wrong")
+    cy.wait(10000)
+  })
+
+  it("E2E wrong password", () => {
+    cy.visit('localhost:3000/login')
+    cy.get('[data-test-id=testUsername]').click().type("Joachim")
+    cy.get('[data-test-id=testPassword]').click().type("user")
+    cy.get('[data-test-id=testLoginButton]').contains("Login").click()
+    cy.get("[data-test-id=testErrorMessage]").contains("username or password wrong")
+    cy.wait(10000)
+  })
+
+  it('E2E Happy Path', () => {
     cy.visit('localhost:3000/login')
     cy.contains('Holiday Handler')
     cy.contains('Login')
@@ -16,4 +34,7 @@ describe('e2e tests', () => {
     cy.get("[data-test-id=testLogout]").click()
 
   })
+
+
+  
 })
