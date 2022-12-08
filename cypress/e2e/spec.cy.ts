@@ -4,8 +4,7 @@ describe('e2e tests', () => {
     cy.get('[data-test-id=testUsername]').click().type("WrongName")
     cy.get('[data-test-id=testPassword]').click().type("user123")
     cy.get('[data-test-id=testLoginButton]').contains("Login").click()
-    cy.get("[data-test-id=testErrorMessage]").contains("username or password wrong")
-    cy.wait(10000)
+    cy.get("[data-test-id=testErrorMessage]").contains("username or password is incorrect")
   })
 
   it("E2E wrong password", () => {
@@ -14,7 +13,6 @@ describe('e2e tests', () => {
     cy.get('[data-test-id=testPassword]').click().type("user")
     cy.get('[data-test-id=testLoginButton]').contains("Login").click()
     cy.get("[data-test-id=testErrorMessage]").contains("username or password is incorrect")
-    cy.wait(10000)
   })
 
   it('E2E Happy Path', () => {
