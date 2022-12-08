@@ -13,7 +13,7 @@ describe('e2e tests', () => {
     cy.get('[data-test-id=testUsername]').click().type("Joachim")
     cy.get('[data-test-id=testPassword]').click().type("user")
     cy.get('[data-test-id=testLoginButton]').contains("Login").click()
-    cy.get("[data-test-id=testErrorMessage]").contains("username or password wrong")
+    cy.get("[data-test-id=testErrorMessage]").contains("username or password is incorrect")
     cy.wait(10000)
   })
 
