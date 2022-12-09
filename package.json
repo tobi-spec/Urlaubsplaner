@@ -5,7 +5,6 @@
   "scripts": {
     "start": "ts-node src/server.ts",
     "test": "jest --config ./test/jest.config.ts --coverage",
-    "test:ci": "jest --config ./test/jest.config.ts --coverage",
     "prettier": "prettier '**/*.ts' --write",
     "lint": "eslint **/*.ts",
     "cypress:open": "cypress open --config-file ./test/cypress.config.ts",
