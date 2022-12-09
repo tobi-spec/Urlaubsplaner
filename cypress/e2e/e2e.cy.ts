@@ -1,27 +1,27 @@
 describe('e2e tests', () => {
   it("Test redirect from base url", () => {
-    cy.visit('localhost:3000')
+    cy.visit("")
     cy.contains('Holiday Handler')
     cy.contains('Login')
     cy.contains('Username')
   })
 
   it("Test /index is protected", () => {
-    cy.visit('localhost:3000/login')
+    cy.visit('/login')
     cy.contains('Holiday Handler')
     cy.contains('Login')
     cy.contains('Username')
   })
 
   it("Test /data is protected", () => {
-    cy.visit('localhost:3000/data')
+    cy.visit('/data')
     cy.contains('Holiday Handler')
     cy.contains('Login')
     cy.contains('Username')
   })
 
   it("E2E wrong username", () => {
-    cy.visit('localhost:3000/login')
+    cy.visit('/login')
     cy.get('[data-test-id=testUsername]').click().type("WrongName")
     cy.get('[data-test-id=testPassword]').click().type("user123")
     cy.get('[data-test-id=testLoginButton]').contains("Login").click()
@@ -29,7 +29,7 @@ describe('e2e tests', () => {
   })
 
   it("E2E wrong password", () => {
-    cy.visit('localhost:3000/login')
+    cy.visit('/login')
     cy.get('[data-test-id=testUsername]').click().type("Joachim")
     cy.get('[data-test-id=testPassword]').click().type("user")
     cy.get('[data-test-id=testLoginButton]').contains("Login").click()
@@ -37,7 +37,7 @@ describe('e2e tests', () => {
   })
 
   it('E2E Happy Path', () => {
-    cy.visit('localhost:3000/login')
+    cy.visit('/login')
     cy.contains('Holiday Handler')
     cy.contains('Login')
     cy.contains('Username')
