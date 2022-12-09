@@ -4,11 +4,11 @@
   "description": "TypeScript",
   "scripts": {
     "start": "ts-node src/server.ts",
-    "test": "jest --config ./jest.config.ts --coverage",
-    "test:ci": "jest --config ./jest.config.ts --coverage",
-    "prettier": "prettier --config .prettierrc '**/*.ts' --write",
+    "test": "jest --config ./test/jest.config.ts --coverage",
+    "prettier": "prettier '**/*.ts' --write",
     "lint": "eslint **/*.ts",
-    "cypress": "cypress open"
+    "cypress:open": "cypress open --config-file ./test/cypress.config.ts",
+    "cypress:run": "cypress run --config-file ./test/cypress.config.ts"
   },
   "keywords": [],
   "author": "Tobias Weiland",
@@ -41,5 +41,26 @@
     "jsonata": "^1.8.6",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0"
-  }
+  },
+  "prettier": {
+    "semi": true,
+    "trailingComma": "none",
+    "singleQuote": false,
+    "printWidth": 80
+  },
+  "eslintConfig": {
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint",
+    "prettier"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "rules": { }
+}
 }

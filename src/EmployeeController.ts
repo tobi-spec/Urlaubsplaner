@@ -42,7 +42,7 @@ app.get("/status", (req: Request, res: Response) => {
 });
 
 app.get("/", (req: Request, res: Response) => {
-  res.redirect('/login');
+  res.redirect("/login");
 });
 
 app.get("/data", isAuth, (req: Request, res: Response) => {
@@ -58,10 +58,8 @@ app.get("/index.css", isAuth, function (req: Request, res: Response) {
   res.sendFile("/views/index.css", { root: __dirname });
 });
 
-app.get("/icons8-logout-50.png",  function (req: Request, res: Response) {
+app.get("/icons8-logout-50.png", function (req: Request, res: Response) {
   res.sendFile("/views/icons8-logout.png", { root: __dirname });
 });
-
-
 
 export default app;
