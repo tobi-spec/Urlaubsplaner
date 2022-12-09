@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express";
 import flash from "express-flash";
 import session from "express-session";
-import { CalendarConfig } from "./calendar/CalendarConfig";
+
 import {
   strategy,
   serializerFunction,
@@ -11,6 +11,7 @@ import {
 import passport from "passport";
 //TODO: format import?
 const authRouter = require("./authentification/AuthRouter");
+const calendarRouter = require("./calendar/CalendarRouter");
 
 const sessionParams = {
   secret: "env.secret", // move to .env file
@@ -36,6 +37,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(authRouter);
+app.use(calendarRouter)
 
 app.get("/status", (req: Request, res: Response) => {
   res.json("Server runs!");
@@ -43,11 +45,6 @@ app.get("/status", (req: Request, res: Response) => {
 
 app.get("/", (req: Request, res: Response) => {
   res.redirect("/login");
-});
-
-app.get("/data", isAuth, (req: Request, res: Response) => {
-  const config = new CalendarConfig();
-  res.json(config);
 });
 
 app.get("/index", isAuth, function (req: Request, res: Response) {
