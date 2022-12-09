@@ -18,10 +18,10 @@ export const strategy = new LocalStrategy(async function (
       if (match) {
         return done(null, user);
       } else {
-        return done(null, false, { message: "Username or password wrong" });
+        return done(null, false, { message: "username or password is incorrect" });
       }
     } else {
-      return done(null, false, { message: "Username or password wrong" });
+      return done(null, false, { message: "username or password is incorrect" });
     }
   } catch (err) {
     done(err, null);

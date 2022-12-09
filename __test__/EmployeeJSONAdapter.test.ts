@@ -2,6 +2,7 @@ import { EmployeeJSONAdapater } from "../src/EmployeeJSONAdapter";
 import { Employee } from "../src/models/Employee";
 import fs from "fs";
 import bcrypt from "bcrypt";
+import { expect } from '@jest/globals';
 
 describe("unittests for EmployeeJSONAdapater", () => {
   const testPath = "./data/testData.json";

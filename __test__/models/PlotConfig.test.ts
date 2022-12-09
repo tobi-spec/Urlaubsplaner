@@ -1,4 +1,5 @@
 import { PlotConfig } from "../../src/models/PlotConfig";
+import { expect } from '@jest/globals';
 
 describe("unittest for PlotConfig class", () => {
   test("test PlotConfig constructor ", () => {
