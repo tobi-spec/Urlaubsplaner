@@ -1,5 +1,5 @@
 import { EmployeeJSONAdapater } from "../../src/EmployeeJSONAdapter";
-import { Employee } from "../../src/models/Employee";
+import { Employee } from "../../src/employee/Employee";
 import fs from "fs";
 import bcrypt from "bcrypt";
 import { expect } from "@jest/globals";
