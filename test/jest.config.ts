@@ -3,5 +3,5 @@ module.exports = {
   transform: {
     "^.+\\.ts?$": "ts-jest"
   },
-  roots: ["./test/unittests/"]
+  roots: ["./unittests/"]
 };
