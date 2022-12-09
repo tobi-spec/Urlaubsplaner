@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express";
 import flash from "express-flash";
 import session from "express-session";
-import { PlotConfig } from "./calendar/PlotConfig";
+import { PlotConfig } from "./calendar/CalendarConfig";
 import {
   strategy,
   serializerFunction,
