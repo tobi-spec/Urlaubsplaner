@@ -1,6 +1,6 @@
 import { EmployeeJSONAdapater } from "../EmployeeJSONAdapter";
 
-export class PlotConfig {
+export class CalendarConfig {
   employeeJSONAdapater: EmployeeJSONAdapater;
   type: string;
   // types?

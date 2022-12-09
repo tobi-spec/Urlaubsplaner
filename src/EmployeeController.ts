@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express";
 import flash from "express-flash";
 import session from "express-session";
-import { PlotConfig } from "./calendar/CalendarConfig";
+import { CalendarConfig } from "./calendar/CalendarConfig";
 import {
   strategy,
   serializerFunction,
@@ -46,7 +46,7 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.get("/data", isAuth, (req: Request, res: Response) => {
-  const config = new PlotConfig();
+  const config = new CalendarConfig();
   res.json(config);
 });
 
