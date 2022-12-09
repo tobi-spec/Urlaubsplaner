@@ -43,11 +43,25 @@
     "passport": "^0.6.0",
     "passport-local": "^1.0.0"
   },
-
   "prettier": {
     "semi": true,
     "trailingComma": "none",
     "singleQuote": false,
     "printWidth": 80
-  }
+  },
+  "eslintConfig": {
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint",
+    "prettier"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "rules": { }
+}
 }
