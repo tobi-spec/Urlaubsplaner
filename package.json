@@ -8,7 +8,8 @@
     "test:ci": "jest --config ./jest.config.ts --coverage",
     "prettier": "prettier --config .prettierrc '**/*.ts' --write",
     "lint": "eslint **/*.ts",
-    "cypress": "cypress open --config-file ./test/cypress.config.ts"
+    "cypress:open": "cypress open --config-file ./test/cypress.config.ts",
+    "cypress:run": "cypress run --config-file ./test/cypress.config.ts"
   },
   "keywords": [],
   "author": "Tobias Weiland",
