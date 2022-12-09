@@ -17,7 +17,7 @@ router.post(
 );
 
 router.get("/login.css", function (req: Request, res: Response) {
-  res.sendFile("/views/login.css", { root: __dirname });
+  res.sendFile("./views/login.css", { root: __dirname + '/../'});
 });
 
 router.get(
