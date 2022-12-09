@@ -7,10 +7,10 @@ import {
   serializerFunction,
   deserializerFunction,
   isAuth
-} from "./AuthService";
+} from "./authentification/AuthService";
 import passport from "passport";
 //TODO: format import?
-const authRouter = require("./AuthRouter");
+const authRouter = require("./authentification/AuthRouter");
 
 const sessionParams = {
   secret: "env.secret", // move to .env file
