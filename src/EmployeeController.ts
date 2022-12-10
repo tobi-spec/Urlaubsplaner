@@ -1,15 +1,15 @@
 import express, { Request, Response } from "express";
 import flash from "express-flash";
 import session from "express-session";
+import passport from "passport";
+import { authRouter } from "./authentification/AuthRouter";
+import { calendarRouter } from "./calendar/CalendarRouter";
 import {
   strategy,
   serializerFunction,
   deserializerFunction,
 } from "./authentification/AuthService";
-import passport from "passport";
-//TODO: format import?
-import { authRouter } from "./authentification/AuthRouter";
-const calendarRouter = require("./calendar/CalendarRouter");
+
 
 const sessionParams = {
   secret: "env.secret", // move to .env file
