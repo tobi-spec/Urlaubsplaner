@@ -2,8 +2,8 @@ import express, { Request, Response } from "express";
 import flash from "express-flash";
 import session from "express-session";
 import passport from "passport";
-import { authRouter } from "./authentification/AuthRouter";
-import { calendarRouter } from "./calendar/CalendarRouter";
+import authRouter from "./authentification/AuthRouter";
+import calendarRouter from "./calendar/CalendarRouter";
 import {
   strategy,
   serializerFunction,

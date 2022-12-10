@@ -1,7 +1,7 @@
 import express, { NextFunction, Request, Response } from "express";
 import passport from "passport";
 
-export const authRouter = express.Router();
+const authRouter = express.Router();
 
 authRouter.get("/login", function (req: Request, res: Response) {
   res.render("./views/login.ejs", { root: __dirname });
@@ -31,3 +31,5 @@ authRouter.get(
     });
   }
 );
+
+export default authRouter
