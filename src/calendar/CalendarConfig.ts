@@ -1,4 +1,4 @@
-import { EmployeeJSONAdapater } from "../EmployeeJSONAdapter";
+import { EmployeeJSONAdapater } from "../JsonAdapter";
 
 export class CalendarConfig {
   employeeJSONAdapater: EmployeeJSONAdapater;

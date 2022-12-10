@@ -1,4 +1,4 @@
-import { EmployeeJSONAdapater } from "../../src/EmployeeJSONAdapter";
+import { EmployeeJSONAdapater } from "../../src/JsonAdapter";
 import { Employee } from "../../src/employee/Employee";
 import fs from "fs";
 import bcrypt from "bcrypt";
