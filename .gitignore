@@ -27,6 +27,7 @@ lerna-debug.log*
 .settings/
 *.sublime-workspace
 /test/e2e/videos
+/test/e2e/screenshots
 
 # IDE - VSCode
 .vscode/*
