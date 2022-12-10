@@ -1,4 +1,4 @@
-import { CalendarConfig } from "../../../src/calendar/CalendarConfig";
+import { CalendarConfig } from "../../src/calendar/CalendarConfig";
 import { expect } from "@jest/globals";
 
 describe("unittest for PlotConfig class", () => {
