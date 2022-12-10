@@ -1,13 +1,13 @@
 import express, { NextFunction, Request, Response } from "express";
 import passport from "passport";
 
-const router = express.Router();
+export const authRouter = express.Router();
 
-router.get("/login", function (req: Request, res: Response) {
+authRouter.get("/login", function (req: Request, res: Response) {
   res.render("./views/login.ejs", { root: __dirname });
 });
 
-router.post(
+authRouter.post(
   "/login",
   passport.authenticate("local", {
     successRedirect: "/calendar",
@@ -16,11 +16,11 @@ router.post(
   })
 );
 
-router.get("/login.css", function (req: Request, res: Response) {
+authRouter.get("/login.css", function (req: Request, res: Response) {
   res.sendFile("./views/login.css", { root: __dirname + '/../'});
 });
 
-router.get(
+authRouter.get(
   "/logout",
   function (req: Request, res: Response, next: NextFunction) {
     req.logout(function (err) {
@@ -31,5 +31,3 @@ router.get(
     });
   }
 );
-
-module.exports = router;

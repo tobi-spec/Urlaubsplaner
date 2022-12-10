@@ -8,7 +8,7 @@ import {
 } from "./authentification/AuthService";
 import passport from "passport";
 //TODO: format import?
-const authRouter = require("./authentification/AuthRouter");
+import { authRouter } from "./authentification/AuthRouter";
 const calendarRouter = require("./calendar/CalendarRouter");
 
 const sessionParams = {
