@@ -1,6 +1,6 @@
 import fs from "fs";
 import jsonata from "jsonata";
-import { Employee } from "./models/Employee";
+import { Employee } from "./employee/Employee";
 import bcrypt from "bcrypt";
 
 export class EmployeeJSONAdapater {

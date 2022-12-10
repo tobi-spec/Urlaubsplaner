@@ -1,4 +1,4 @@
-import { EmployeeJSONAdapater } from "../src/EmployeeJSONAdapter";
+import { EmployeeJSONAdapater } from "../JsonAdapter";
 import bcrypt from "bcrypt";
 //TODO: format import?
 const LocalStrategy = require("passport-local").Strategy;

@@ -1,9 +1,9 @@
-import { PlotConfig } from "../../../src/models/PlotConfig";
+import { CalendarConfig } from "../../src/calendar/CalendarConfig";
 import { expect } from "@jest/globals";
 
 describe("unittest for PlotConfig class", () => {
   test("test PlotConfig constructor ", () => {
-    const result = new PlotConfig();
+    const result = new CalendarConfig();
     expect(result.type).toBe("bar");
     expect(result.data.labels).toBeTruthy;
     expect(result.options.plugins.legend.display).toBeFalsy;

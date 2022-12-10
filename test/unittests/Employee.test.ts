@@ -1,4 +1,4 @@
-import { Employee } from "../../../src/models/Employee";
+import { Employee } from "../../src/employee/Employee";
 import { expect } from "@jest/globals";
 
 describe("unittests for Employee class", () => {
