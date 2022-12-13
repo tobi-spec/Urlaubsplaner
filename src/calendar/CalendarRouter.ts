@@ -7,11 +7,6 @@ const calendarRouter = express.Router();
 
 const calendarService = new CalendarService("./data/data.json")
 
-calendarRouter.get("/data", isAuth, (req: Request, res: Response) => {
-    const config = new CalendarConfig();
-    res.json(config);
-  });
-
 calendarRouter.get("/calendar", isAuth, function (req: Request, res: Response) {
 res.render("./views/calendar.ejs", { root: __dirname + '/../' });
 });

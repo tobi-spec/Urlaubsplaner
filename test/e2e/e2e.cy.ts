@@ -13,13 +13,6 @@ describe("e2e tests", () => {
     cy.contains("Username");
   });
 
-  it("Test /data is protected", () => {
-    cy.visit("/data");
-    cy.contains("Holiday Handler");
-    cy.contains("Login");
-    cy.contains("Username");
-  });
-
   it("E2E wrong username", () => {
     cy.visit("/login");
     cy.get("[data-test-id=testUsername]").click().type("WrongName");
