@@ -16,13 +16,12 @@
     <div data-test-id="testCalendarCanvas" id="visualization"></div>
 <script type="text/javascript" src="https://unpkg.com/vis-timeline@latest/standalone/umd/vis-timeline-graph2d.min.js"></script>
 <script type="text/javascript">
-  // DOM element where the Timeline will be attached
-  var container = document.getElementById('visualization');
 
-  // Create a DataSet (allows two way data-binding)
-  const itemList = fetch("/items")
-  console.log(itemList)
-  var items = new vis.DataSet([
+
+  async function renderCalendar() {
+    var container = await document.getElementById('visualization');
+    const itemList = await fetch("/items")
+    var items = new vis.DataSet([
     {start: '2022-02-20', end: '2022-03-15', group: 1},
     {start: '2022-08-14', end: '2022-08-23', group: 1},
     {start: '2022-05-18', end: '2022-05-30', group: 2},
@@ -36,43 +35,13 @@
     {start: '2022-01-16', end: '2022-01-25', group: 6},
     {start: '2022-03-01', end: '2022-03-19', group: 6},
   ]);
-
-  // Create Groups
-  var groups =  [
-  {
-    id: 1,
-    content: 'employee 1'
-  },
-  {
-    id: 2,
-    content: 'employee 2'
-  },
-  {
-    id: 3,
-    content: 'employee 3'
-  },
-  {
-    id: 4,
-    content: 'employee 4'
+    const groupList = await fetch("/groups")
+    var groups = await groupList.json()
+    var timeline = await new vis.Timeline(container, items, groups);
   }
-  ,
-  {
-    id: 5,
-    content: 'employee 5'
-  }
-  ,
-  {
-    id: 6,
-    content: 'employee 6'
-  }
-]
 
-  // Configuration for the Timeline
-  var options = {
-  };
-
-  // Create a Timeline
-  var timeline = new vis.Timeline(container, items, groups, options);
+  renderCalendar()
+  
 </script>
   </body>
 </html>
