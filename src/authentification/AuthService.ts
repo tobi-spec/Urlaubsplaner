@@ -1,9 +1,9 @@
-import { EmployeeJSONAdapater } from "../JsonAdapter";
+import { JsonAdapater } from "../JsonAdapter";
 import bcrypt from "bcrypt";
 //TODO: format import?
 const LocalStrategy = require("passport-local").Strategy;
 
-const employeeJSONAdapater = new EmployeeJSONAdapater("./data/data.json");
+const employeeJSONAdapater = new JsonAdapater("./data/data.json");
 
 export const strategy = new LocalStrategy(async function (
   username: string,

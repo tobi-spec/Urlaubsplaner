@@ -1,7 +1,7 @@
-import { EmployeeJSONAdapater } from "../JsonAdapter";
+import { JsonAdapater } from "../JsonAdapter";
 
 export class CalendarConfig {
-  employeeJSONAdapater: EmployeeJSONAdapater;
+  employeeJSONAdapater: JsonAdapater;
   type: string;
   // types?
   data: any;
@@ -27,7 +27,7 @@ export class CalendarConfig {
   };
 
   constructor() {
-    this.employeeJSONAdapater = new EmployeeJSONAdapater("./data/data.json");
+    this.employeeJSONAdapater = new JsonAdapater("./data/data.json");
     this.type = "bar";
     this.data = {
       labels: this.employeeJSONAdapater.getNames(),

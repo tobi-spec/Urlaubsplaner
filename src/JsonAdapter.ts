@@ -3,7 +3,7 @@ import jsonata from "jsonata";
 import { Employee } from "./employee/Employee";
 import bcrypt from "bcrypt";
 
-export class EmployeeJSONAdapater {
+export class JsonAdapater {
   path: string;
 
   constructor(path: string) {

@@ -1,4 +1,4 @@
-import { EmployeeJSONAdapater } from "../../src/JsonAdapter";
+import { JsonAdapater } from "../../src/JsonAdapter";
 import { Employee } from "../../src/employee/Employee";
 import fs from "fs";
 import bcrypt from "bcrypt";
@@ -23,7 +23,7 @@ describe("unittests for EmployeeJSONAdapater", () => {
   });
 
   test("test createEmployee()", async () => {
-    const employeeJSONAdapater = new EmployeeJSONAdapater(testPath);
+    const employeeJSONAdapater = new JsonAdapater(testPath);
     await employeeJSONAdapater.createEmployee("testUser", "user456");
 
     const rawData = fs.readFileSync(testPath, "utf-8");
@@ -36,7 +36,7 @@ describe("unittests for EmployeeJSONAdapater", () => {
   });
 
   test("test getEmployeeByName()", async () => {
-    const employeeJSONAdapater = new EmployeeJSONAdapater(testPath);
+    const employeeJSONAdapater = new JsonAdapater(testPath);
     const employee = await employeeJSONAdapater.getEmployeeByName("employee1");
 
     expect(Object.values(employee)[0]).toBe("employee1");
