@@ -1,17 +1,19 @@
 import { JsonAdapater } from "../JsonAdapter";
 import fs from "fs";
+import { DataSet } from "vis-data";
 
 type item = {
   id: number;
   start: string;
   end: string;
-  group: number;
+  group: string;
 }
 
 type group = {
   id: number;
   content: string;
 }
+
 
 export class CalendarService {
   jsonAdapter: JsonAdapater;
@@ -21,10 +23,13 @@ export class CalendarService {
     this.jsonAdapter = new JsonAdapater(path);
   }
 
-  public createItems():Promise <[item]>  {
+  public createItems()  {
     const rawData = fs.readFileSync("./data/holidays.json", "utf-8");
     const data = JSON.parse(rawData);
-    return data
+
+    const set = new DataSet<item>();
+    set.add(data)
+    return set.get()
   }
 
   public createGroups():Promise <[group]> {
