@@ -22,22 +22,13 @@ export class JsonAdapater {
   }
 
   public async getEmployeeByName(wantedName: string) {
-    const names: string[] = this.getNames();
+    const names: string[] = this.getJSONDataByExpression("employees.name");
     const position = names.indexOf(wantedName);
     if (position === -1) {
       return null;
     } else {
-      return this.getEmployeeByPosition(position);
+      return this.getJSONDataByExpression(`employees[${position}]`);
     }
-  }
-
-  getEmployeeByPosition(position: number): string[] {
-    return this.getJSONDataByExpression(`employees[${position}]`);
-  }
-
-  // write test
-  public getNames(): string[] {
-    return this.getJSONDataByExpression("employees.name");
   }
 
   // output of function is sometimes string and sometimes number, how to set output type?
