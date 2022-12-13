@@ -87,4 +87,9 @@ export class EmployeeJSONAdapater {
     const expression = jsonata(jasonataExpression);
     return expression.evaluate(data);
   }
+
+  getJsonData() {
+    const rawData = fs.readFileSync(this.path, "utf-8");
+    return JSON.parse(rawData);
+  }
 }
