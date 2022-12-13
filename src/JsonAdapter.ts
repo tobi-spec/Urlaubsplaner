@@ -40,46 +40,6 @@ export class JsonAdapater {
     return this.getJSONDataByExpression("employees.name");
   }
 
-  // write tests
-  public createDataSets() {
-    const count = this.countEmployees();
-    let max = 0;
-    for (let i = 0; i < count; i++) {
-      const occurency = this.countEmployeeVaccationTimes(i);
-      if (occurency > max) {
-        max = occurency;
-      }
-    }
-    const datasetArray = [];
-    for (let i = 0; i < max; i++) {
-      const dataset = {
-        data: this.getVaccations(i),
-        backgroundColor: this.getColors()
-      };
-      datasetArray.push(dataset);
-    }
-    return datasetArray;
-  }
-
-  countEmployees(): number {
-    return this.getJSONDataByExpression(`$count(employees)`);
-  }
-
-  countEmployeeVaccationTimes(employee: number): number {
-    return this.getJSONDataByExpression(`$count(employees[${employee}].vaccation)`);
-  }
-
-  getVaccations(position: number): string[] {
-    return this.getJSONDataByExpression(`employees.[vaccation[${position}]]`);
-  }
-
-  getColors(): string[] {
-    const rawData = fs.readFileSync("./data/colors.json", "utf-8");
-    const data = JSON.parse(rawData);
-    const expression = jsonata("colors");
-    return expression.evaluate(data);
-  }
-
   // output of function is sometimes string and sometimes number, how to set output type?
   getJSONDataByExpression(jasonataExpression: string) {
     const rawData = fs.readFileSync(this.path, "utf-8");
