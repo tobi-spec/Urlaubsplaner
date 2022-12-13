@@ -20,21 +20,8 @@
 
   async function renderCalendar() {
     var container = await document.getElementById('visualization');
-    const itemList = await fetch("/items")
-    var items = new vis.DataSet([
-    {start: '2022-02-20', end: '2022-03-15', group: 1},
-    {start: '2022-08-14', end: '2022-08-23', group: 1},
-    {start: '2022-05-18', end: '2022-05-30', group: 2},
-    {start: '2022-06-16', end: '2022-06-25', group: 3},
-    {start: '2022-08-01', end: '2022-08-19', group: 3},
-    {start: '2022-01-16', end: '2022-01-25', group: 4},
-    {start: '2022-03-01', end: '2022-03-19', group: 4},
-    {start: '2022-05-18', end: '2022-05-30', group: 5},
-    {start: '2022-06-16', end: '2022-06-25', group: 5},
-    {start: '2022-08-01', end: '2022-08-19', group: 5},
-    {start: '2022-01-16', end: '2022-01-25', group: 6},
-    {start: '2022-03-01', end: '2022-03-19', group: 6},
-  ]);
+    const itemsList = await fetch("/items")
+    const items = await itemsList.json()
     const groupList = await fetch("/groups")
     var groups = await groupList.json()
     var timeline = await new vis.Timeline(container, items, groups);
