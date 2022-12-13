@@ -29,8 +29,8 @@ calendarRouter.get("/items", (req: Request, res: Response) => {
   res.json(items);
 });
 
-calendarRouter.get("/groups", async (req: Request, res: Response) => {
-const groups = await calendarService.createGroups();
+calendarRouter.get("/groups", (req: Request, res: Response) => {
+const groups = calendarService.createGroups();
 res.json(groups);
 });
 

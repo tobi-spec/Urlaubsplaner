@@ -27,7 +27,7 @@ export class CalendarService {
     return data
   }
 
-  public async createGroups():Promise <[group]> {
+  public createGroups():Promise <[group]> {
     return this.jsonAdapter.getJSONDataByExpression("employees.{\"id\": id, \"content\": name}")
   }
 
