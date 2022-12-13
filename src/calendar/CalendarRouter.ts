@@ -1,5 +1,4 @@
 import express, { NextFunction, Request, Response } from "express";
-import { CalendarConfig } from "./CalendarConfig";
 import { isAuth } from "../authentification/AuthService";
 import { CalendarService } from "./CalendarService";
 
