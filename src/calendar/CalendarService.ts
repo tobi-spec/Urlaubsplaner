@@ -1,4 +1,5 @@
 import { JsonAdapater } from "../JsonAdapter";
+import fs from "fs";
 
 type item = {
   id: number;
@@ -13,19 +14,21 @@ type group = {
 }
 
 export class CalendarService {
-  jsonAdapater: JsonAdapater;
+  jsonAdapter: JsonAdapater;
   path: string;
 
   constructor(path: string) {
-    this.jsonAdapater = new JsonAdapater(path);
+    this.jsonAdapter = new JsonAdapater(path);
   }
 
-  public createItems() {
-    return this.jsonAdapater.getEmployeesVaccations()
+  public createItems():Promise <[item]>  {
+    const rawData = fs.readFileSync("./data/holidays.json", "utf-8");
+    const data = JSON.parse(rawData);
+    return data
   }
 
   public async createGroups():Promise <[group]> {
-    return await this.jsonAdapater.getEmployeeNameAndId()
+    return this.jsonAdapter.getJSONDataByExpression("employees.{\"id\": id, \"content\": name}")
   }
 
   // Will be used later, when calendar will be styled
