@@ -14,6 +14,7 @@
   "author": "Tobias Weiland",
   "license": "ISC",
   "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
     "@types/express-flash": "^0.0.2",
     "@types/express-session": "^1.17.4",
     "@types/jest": "^28.0.5",
