@@ -6,12 +6,12 @@ type item = {
   start: string;
   end: string;
   group: string;
-}
+};
 
 type group = {
   id: number;
   content: string;
-}
+};
 
 export class CalendarService {
   jsonHolidayAdapter: JsonAdapater;
@@ -21,22 +21,24 @@ export class CalendarService {
 
   constructor(pathHoliday: string, pathEmployee: string) {
     this.jsonHolidayAdapter = new JsonAdapater(pathHoliday);
-    this.jsonEmployeeAdapater = new JsonAdapater(pathEmployee)
+    this.jsonEmployeeAdapater = new JsonAdapater(pathEmployee);
   }
 
-  public createItems(): item[]  {
-    const data = this.jsonHolidayAdapter.getJsonData()
+  public createItems(): item[] {
+    const data = this.jsonHolidayAdapter.getJsonData();
     const set = new DataSet<item>();
-    set.add(data)
-    return set.get()
+    set.add(data);
+    return set.get();
   }
 
   public createGroups(): group[] {
-    return this.jsonEmployeeAdapater.getJSONDataByExpression("employees.{\"id\": id, \"content\": name}")
+    return this.jsonEmployeeAdapater.getJSONDataByExpression(
+      'employees.{"id": id, "content": name}'
+    );
   }
 
   // Will be used later, when calendar will be styled
   public createOptions() {
-    return null
+    return null;
   }
 }

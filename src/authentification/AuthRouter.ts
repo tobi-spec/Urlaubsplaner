@@ -17,7 +17,7 @@ authRouter.post(
 );
 
 authRouter.get("/login.css", function (req: Request, res: Response) {
-  res.sendFile("./views/login.css", { root: __dirname + '/../'});
+  res.sendFile("./views/login.css", { root: __dirname + "/../" });
 });
 
 authRouter.get(
@@ -32,4 +32,4 @@ authRouter.get(
   }
 );
 
-export default authRouter
+export default authRouter;

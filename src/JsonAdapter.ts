@@ -1,7 +1,6 @@
 import fs from "fs";
 import jsonata from "jsonata";
 
-
 export class JsonAdapater {
   path: string;
 

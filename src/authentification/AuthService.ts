@@ -55,12 +55,13 @@ export const isAuth = (req, res, next) => {
   }
 };
 
-const getEmployeeByName = async(wantedName: string) => {
-  const names: string[] = jsonAdapater.getJSONDataByExpression("employees.name");
+const getEmployeeByName = async (wantedName: string) => {
+  const names: string[] =
+    jsonAdapater.getJSONDataByExpression("employees.name");
   const position = names.indexOf(wantedName);
   if (position === -1) {
     return null;
   } else {
     return jsonAdapater.getJSONDataByExpression(`employees[${position}]`);
   }
-}
+};
