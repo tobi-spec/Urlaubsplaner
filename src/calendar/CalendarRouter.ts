@@ -18,12 +18,12 @@ calendarRouter.get("/icons8-logout-50.png", function (req: Request, res: Respons
 res.sendFile("/views/icons8-logout.png", { root: __dirname + '/../' });
 });
 
-calendarRouter.get("/items", (req: Request, res: Response) => {
+calendarRouter.get("/items", isAuth, (req: Request, res: Response) => {
   const items = calendarService.createItems();
   res.json(items);
 });
 
-calendarRouter.get("/groups", (req: Request, res: Response) => {
+calendarRouter.get("/groups", isAuth, (req: Request, res: Response) => {
 const groups = calendarService.createGroups();
 res.json(groups);
 });
