@@ -16,24 +16,25 @@ type group = {
 
 
 export class CalendarService {
-  jsonAdapter: JsonAdapater;
-  path: string;
+  jsonHolidayAdapter: JsonAdapater;
+  jsonEmployeeAdapater: JsonAdapater;
+  pathHoliday: string;
+  pathEmployee: string;
 
-  constructor(path: string) {
-    this.jsonAdapter = new JsonAdapater(path);
+  constructor(pathHoliday: string, pathEmployee: string) {
+    this.jsonHolidayAdapter = new JsonAdapater(pathHoliday);
+    this.jsonEmployeeAdapater = new JsonAdapater(pathEmployee)
   }
 
   public createItems()  {
-    const rawData = fs.readFileSync("./data/holidays.json", "utf-8");
-    const data = JSON.parse(rawData);
-
+    const data = this.jsonHolidayAdapter.getJsonData()
     const set = new DataSet<item>();
     set.add(data)
     return set.get()
   }
 
   public createGroups():Promise <[group]> {
-    return this.jsonAdapter.getJSONDataByExpression("employees.{\"id\": id, \"content\": name}")
+    return this.jsonEmployeeAdapater.getJSONDataByExpression("employees.{\"id\": id, \"content\": name}")
   }
 
   // Will be used later, when calendar will be styled

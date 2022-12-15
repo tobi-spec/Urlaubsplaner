@@ -4,7 +4,7 @@ import { CalendarService } from "./CalendarService";
 
 const calendarRouter = express.Router();
 
-const calendarService = new CalendarService("./data/data.json")
+const calendarService = new CalendarService("./data/holidays.json", "./data/data.json")
 
 calendarRouter.get("/calendar", isAuth, function (req: Request, res: Response) {
 res.render("./views/calendar.ejs", { root: __dirname + '/../' });
