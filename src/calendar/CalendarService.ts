@@ -1,5 +1,4 @@
 import { JsonAdapater } from "../JsonAdapter";
-import fs from "fs";
 import { DataSet } from "vis-data";
 
 type item = {
@@ -14,7 +13,6 @@ type group = {
   content: string;
 }
 
-
 export class CalendarService {
   jsonHolidayAdapter: JsonAdapater;
   jsonEmployeeAdapater: JsonAdapater;
@@ -26,14 +24,14 @@ export class CalendarService {
     this.jsonEmployeeAdapater = new JsonAdapater(pathEmployee)
   }
 
-  public createItems()  {
+  public createItems(): item[]  {
     const data = this.jsonHolidayAdapter.getJsonData()
     const set = new DataSet<item>();
     set.add(data)
     return set.get()
   }
 
-  public createGroups():Promise <[group]> {
+  public createGroups(): group[] {
     return this.jsonEmployeeAdapater.getJSONDataByExpression("employees.{\"id\": id, \"content\": name}")
   }
 
