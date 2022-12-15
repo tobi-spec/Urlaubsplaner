@@ -2,7 +2,7 @@ import { JsonAdapater } from "../JsonAdapter";
 import bcrypt from "bcrypt";
 import { Strategy as LocalStrategy } from "passport-local";
 
-const jsonAdapater = new JsonAdapater("./data/data.json");
+const jsonAdapater = new JsonAdapater("./data/employees.json");
 
 export const strategy = new LocalStrategy(async function (
   username: string,
