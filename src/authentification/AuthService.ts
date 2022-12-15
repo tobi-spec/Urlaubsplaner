@@ -12,7 +12,7 @@ export const strategy = new LocalStrategy(async function (
 ) {
   try {
     let user;
-    user = await employeeJSONAdapater.getEmployeeByName(username);
+    user = await getEmployeeByName(username);
     if (user) {
       let match = await bcrypt.compare(password, user["passwort"]);
       if (match) {
@@ -38,7 +38,7 @@ export const serializerFunction = (user: Express.User, done) => {
 
 export const deserializerFunction = (name: string, done) => {
   try {
-    let user = employeeJSONAdapater.getEmployeeByName(name);
+    let user = getEmployeeByName(name);
     if (!user) {
       return done(new Error("user not found"));
     }
@@ -55,3 +55,13 @@ export const isAuth = (req, res, next) => {
     res.render("./views/login.ejs", { root: __dirname });
   }
 };
+
+const getEmployeeByName = async(wantedName: string) => {
+  const names: string[] = employeeJSONAdapater.getJSONDataByExpression("employees.name");
+  const position = names.indexOf(wantedName);
+  if (position === -1) {
+    return null;
+  } else {
+    return employeeJSONAdapater.getJSONDataByExpression(`employees[${position}]`);
+  }
+}

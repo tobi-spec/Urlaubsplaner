@@ -9,16 +9,6 @@ export class JsonAdapater {
     this.path = path;
   }
 
-  public async getEmployeeByName(wantedName: string) {
-    const names: string[] = this.getJSONDataByExpression("employees.name");
-    const position = names.indexOf(wantedName);
-    if (position === -1) {
-      return null;
-    } else {
-      return this.getJSONDataByExpression(`employees[${position}]`);
-    }
-  }
-
   // output of function is sometimes string and sometimes number, how to set output type?
   getJSONDataByExpression(jasonataExpression: string) {
     const rawData = fs.readFileSync(this.path, "utf-8");
