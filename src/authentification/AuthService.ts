@@ -3,7 +3,7 @@ import bcrypt from "bcrypt";
 //TODO: format import?
 const LocalStrategy = require("passport-local").Strategy;
 
-const employeeJSONAdapater = new JsonAdapater("./data/data.json");
+const jsonAdapater = new JsonAdapater("./data/data.json");
 
 export const strategy = new LocalStrategy(async function (
   username: string,
@@ -57,11 +57,11 @@ export const isAuth = (req, res, next) => {
 };
 
 const getEmployeeByName = async(wantedName: string) => {
-  const names: string[] = employeeJSONAdapater.getJSONDataByExpression("employees.name");
+  const names: string[] = jsonAdapater.getJSONDataByExpression("employees.name");
   const position = names.indexOf(wantedName);
   if (position === -1) {
     return null;
   } else {
-    return employeeJSONAdapater.getJSONDataByExpression(`employees[${position}]`);
+    return jsonAdapater.getJSONDataByExpression(`employees[${position}]`);
   }
 }
