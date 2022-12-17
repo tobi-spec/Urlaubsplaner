@@ -42,21 +42,52 @@ background-color: rgba(0, 0, 0, 0.05);
 box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.17);
 }
 
+.panel {
+}
+
 #visualization {
-margin-left: 10vw;
-margin-right: 10vw;
-margin-top: 15vw;
+  height: auto;
+  width: 75vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15vw;
 }
 /* alternating column backgrounds */
 .vis-time-axis .vis-grid.vis-odd {
-background: #f5f5f5;
+  background: #f5f5f5;
 }
 /* gray background in weekends, white text color */
 .vis-time-axis .vis-grid.vis-saturday,
 .vis-time-axis .vis-grid.vis-sunday {
-background: gray;
+  background: gray;
 }
 .vis-time-axis .vis-text.vis-saturday,
 .vis-time-axis .vis-text.vis-sunday {
-color: white;
+  color: white;
 }
+
+.sidebar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+  width: 80vw;
+  border-style: solid;
+  border-color: black;
+  border-radius: 10px;
+  background-image: linear-gradient(to right, #96ceb4, #ffeead);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5vh;
+}
+
+.sidebar-info {
+  margin: 10px;
+  font-size: larger;
+}
+
+.sidebar-action {
+  font-size: larger;
+  margin-left: 10px;
+}
+
