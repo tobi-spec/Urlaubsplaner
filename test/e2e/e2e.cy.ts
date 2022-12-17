@@ -13,6 +13,27 @@ describe("e2e tests", () => {
     cy.contains("Username");
   });
 
+  it("Test /items is protected", () => {
+    cy.visit("/items");
+    cy.contains("Holiday Handler");
+    cy.contains("Login");
+    cy.contains("Username");
+  });
+
+  it("Test /groups is protected", () => {
+    cy.visit("/groups");
+    cy.contains("Holiday Handler");
+    cy.contains("Login");
+    cy.contains("Username");
+  });
+
+  it("Test /options is protected", () => {
+    cy.visit("/options");
+    cy.contains("Holiday Handler");
+    cy.contains("Login");
+    cy.contains("Username");
+  });
+
   it("E2E wrong username", () => {
     cy.visit("/login");
     cy.get("[data-test-id=testUsername]").click().type("WrongName");
