@@ -7,9 +7,8 @@ import calendarRouter from "./calendar/CalendarRouter";
 import {
   strategy,
   serializerFunction,
-  deserializerFunction,
+  deserializerFunction
 } from "./authentification/AuthService";
-
 
 const sessionParams = {
   secret: "env.secret", // move to .env file
@@ -31,7 +30,7 @@ passport.deserializeUser(deserializerFunction);
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(authRouter);
-app.use(calendarRouter)
+app.use(calendarRouter);
 
 app.get("/status", (req: Request, res: Response) => {
   res.json("Server runs!");

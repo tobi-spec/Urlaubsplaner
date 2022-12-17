@@ -13,28 +13,22 @@
         <a data-test-id="testLogout" href="logout"><img src="icons8-logout-50.png" ></a>
       </div>
     </div>
-    <div class="chartMenu">
-      <div class="chartBox">
-          <canvas data-test-id="testCalendarCanvas" id="myChart"></canvas>
-      </div>
-    </div>
-  </body>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
-  <script>
+    <div data-test-id="testCalendarCanvas" id="visualization"></div>
+<script type="text/javascript" src="https://unpkg.com/vis-timeline@latest/standalone/umd/vis-timeline-graph2d.min.js"></script>
+<script type="text/javascript">
 
-  drawChart()
 
-  async function drawChart() {
-    response = await fetch("data")
-    const config = await response.json()
-
-    // render init block
-    const myChart = new Chart(
-      document.getElementById('myChart'),
-      config
-    );
+  async function renderCalendar() {
+    var container = await document.getElementById('visualization');
+    const itemsList = await fetch("/items")
+    const items = await itemsList.json()
+    const groupList = await fetch("/groups")
+    var groups = await groupList.json()
+    var timeline = await new vis.Timeline(container, items, groups);
   }
+
+  renderCalendar()
   
-  </script>
+</script>
+  </body>
 </html>

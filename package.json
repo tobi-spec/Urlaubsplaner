@@ -14,6 +14,7 @@
   "author": "Tobias Weiland",
   "license": "ISC",
   "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
     "@types/express-flash": "^0.0.2",
     "@types/express-session": "^1.17.4",
     "@types/jest": "^28.0.5",
@@ -40,7 +41,8 @@
     "express-session": "^1.17.3",
     "jsonata": "^1.8.6",
     "passport": "^0.6.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "vis-data": "^7.1.4"
   },
   "prettier": {
     "semi": true,
@@ -49,18 +51,18 @@
     "printWidth": 80
   },
   "eslintConfig": {
-  "root": true,
-  "parser": "@typescript-eslint/parser",
-  "plugins": [
-    "@typescript-eslint",
-    "prettier"
-  ],
-  "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended",
-    "prettier"
-  ],
-  "rules": { }
-}
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint",
+      "prettier"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended",
+      "prettier"
+    ],
+    "rules": {}
+  }
 }
