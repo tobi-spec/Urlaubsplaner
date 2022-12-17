@@ -1,0 +1,9 @@
+{
+	"employees": [
+		{
+			"id": "1",
+			"name": "employee1",
+			"password": "$2a$10$I8nZ18bhG7RfaZl1g8tMOOhrpT/hDSoo9Of.3gzUmrznXKJftUU2a"
+		}
+	]
+}
