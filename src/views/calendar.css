@@ -68,6 +68,12 @@ box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.17);
   color: white;
 }
 
+.submit-holidays {
+  background-color:red;
+  color:white;
+  font-size:44px;
+}
+
 .footer {
   display: flex;
   justify-content: space-between;
