@@ -13,10 +13,55 @@
         <a data-test-id="testLogout" href="logout"><img src="icons8-logout-50.png" ></a>
       </div>
     </div>
-    <div data-test-id="testCalendarCanvas" id="visualization"></div>
-<script type="text/javascript" src="https://unpkg.com/vis-timeline@latest/standalone/umd/vis-timeline-graph2d.min.js"></script>
-<script type="text/javascript">
 
+    <div class="panel">
+
+      <div data-test-id="testCalendarCanvas" id="visualization"></div>
+
+      <div id="submit" class="hidden-field"> Here a user will be able to submit holidays!</div>
+      <div id="edit" class="hidden-field"> Here a user will be able to edit holidays!</div>
+
+      <div data-test-id="testFooter" class="footer">
+        <div class="info-group">
+          <p class="footer-info">Urlaubstage gesamt: 28</p>
+          <p class="footer-info">Urlaubstage offen: 25</p>
+          <p class="footer-info">Urlaubstage ausgegeben: 3</p>
+          <p class="footer-info">Urlaubsanträge offen: 0</p>
+        </div>
+        <div class="button-group">
+          <button class="footer-action" onclick="showSubmitForm()">Urlaub einreichen</button >
+            <button class="footer-action" onclick="showEditForm()">Urlaub bearbeiten</button >
+        </div>
+      </div>
+
+    </div>
+
+<script type="text/javascript" src="https://unpkg.com/vis-timeline@latest/standalone/umd/vis-timeline-graph2d.min.js"></script>
+<script>
+  let submitIsShow = false
+  function showSubmitForm(){
+    if(!submitIsShow) {
+      document.getElementById('submit').setAttribute("class", "submit-holidays");
+      submitIsShow = true;
+    } else {
+      document.getElementById('submit').setAttribute("class", "hidden-field");
+      submitIsShow = false
+    }
+  }
+</script>
+<script>
+  let editIsShow = false
+  function showEditForm(){
+    if(!editIsShow) {
+      document.getElementById('edit').setAttribute("class", "edit-holidays");
+      editIsShow = true;
+    } else {
+      document.getElementById('edit').setAttribute("class", "hidden-field");
+      editIsShow = false
+    }
+  }
+</script>
+<script type="text/javascript">
 
   async function renderCalendar() {
     var container = await document.getElementById('visualization');
